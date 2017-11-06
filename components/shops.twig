@@ -1,0 +1,22 @@
+{% extends 'templates/base_layout.twig' %}
+
+	{% block title %}
+		{{ parent() }} Shopes
+	{% endblock %}
+
+
+	{% block custom_assets %}
+		<link rel="stylesheet" type="text/css" href="Assets/css/shops.css">
+		<script type="text/javascript">
+			var shops = {{ shops|json_encode()|raw }};
+		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnDOHWzgqxTNqdkBPkTrhD1ou_CoaTNA&callback=initMap"></script>
+		<script type="text/javascript" src="/Assets/js/shops.js"></script>
+	{% endblock %}
+
+
+	{% block content %}
+		<div class="map_wrapper">
+			<div id="gmap"></div>
+		</div>
+	{% endblock %}
