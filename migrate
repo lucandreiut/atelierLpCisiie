@@ -1,0 +1,198 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ .'/vendor/autoload.php';
+require __DIR__ .'/config/database.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Cartalyst\Sentinel\Native\Facades\Sentinel;
+
+class Migrator {
+	
+    /**
+     * migrate the database schema
+     */
+    public function migrate() {
+        /**
+         * create table for sentinel user
+         */
+        if (!Capsule::schema()->hasTable('user')) {
+            Capsule::schema()->create('user', function($table)
+            {
+
+                $table->integer('id', true);
+                $table->string('name');
+                $table->string('email');
+                $table->string('password');
+
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+            });
+        }
+
+        /**
+         * create table for lists
+         */
+        if (!Capsule::schema()->hasTable('list')) {
+            Capsule::schema()->create('list', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('title');
+                $table->string('description');
+                $table->timestamp('limit_date');
+                $table->boolean('is_self_target');
+                $table->string('receiver');
+                $table->string('sharing_url');
+                //FK
+                $table->integer('user_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('user_id')->references('id')->on('user');
+
+            });
+        }
+
+        /**
+         * create table for global messages
+         */
+        if (!Capsule::schema()->hasTable('global_message')) {
+            Capsule::schema()->create('global_message', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('name');
+                $table->text('message');
+                $table->timestamp('date');
+                //FK
+                $table->integer('list_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('list_id')->references('id')->on('list');
+            });
+        }
+		
+		/**
+         * create table for groups
+         */
+        if (!Capsule::schema()->hasTable('group')) {
+            Capsule::schema()->create('group', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('title');
+                $table->double('total_price');
+                $table->boolean('is_crowdfundable');
+                $table->double('current_contribution');
+                $table->boolean('is_reserved');
+                $table->integer('list_id');
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('list_id')->references('id')->on('list');
+            });
+        }
+
+        /**
+         * create table for items
+         */
+        if (!Capsule::schema()->hasTable('item')) {
+            Capsule::schema()->create('item', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('title');
+                $table->string('description');
+                $table->double('price');
+                $table->string('url');
+                $table->boolean('is_crowdfundable');
+                $table->double('current_contribution');
+                $table->boolean('is_reserved');
+                //FK
+                $table->integer('group_id')->nullable();
+                //FK
+                $table->integer('list_id')->nullable();
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('group_id')->references('id')->on('group');
+                $table->foreign('list_id')->references('id')->on('list');
+                
+            });
+        }
+
+        /**
+         * create table for item images
+         */
+        if (!Capsule::schema()->hasTable('image')) {
+            Capsule::schema()->create('image', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('url');
+                //FK
+                $table->integer('item_id')->nullable();
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('item_id')->references('id')->on('item');
+
+
+            });
+        }
+        
+        /**
+         * create table for contributors
+         */
+        if (!Capsule::schema()->hasTable('contributor')) {
+            Capsule::schema()->create('contributor', function($table)
+            {
+                $table->integer('id', true);
+                $table->string('name');
+                $table->text('message')->nullable();
+                $table->timestamp('contribution_date');
+                //FK
+                $table->integer('group_id')->nullable();
+                //FK
+                $table->integer('item_id')->nullable();
+
+                $table->engine = 'InnoDB';
+
+                //Foreign keys declaration
+                $table->foreign('group_id')->references('id')->on('group');
+                $table->foreign('item_id')->references('id')->on('item');
+
+
+            });
+        }
+
+    }
+
+    /**
+     * seed the database with initial value
+     */
+    public function seed() {
+        try {
+           $credentials = [
+                'name' => 'Admin',
+				'email'    => 'admin@mecado.fr',
+				'password' => 'admin'
+			];
+
+			$user = Sentinel::registerAndActivate($credentials);
+			
+        } catch(Exception $e) {
+            echo $e->getMessage()."\n";
+        }
+    }
+}
+
+$migrator = new Migrator();
+
+$migrator->migrate();
+// $migrator->seed();
+
+print("Migration Successfully");
