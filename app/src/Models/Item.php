@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Models;
-use Illuminate\Database\Eloquent\Model
+	namespace App\Models;
 
-class Item extends Model{
+	use Illuminate\Database\Eloquent\Model;
 
-	protected $table = 'item';
-    protected $primarykey = 'id';
-    private $timestamps = false;
+/**
+* The item model
+*/
+class Item extends Model
+{
+	private $primarykey = 'id';
+	private $table = 'item';
+	private $timestamps = false;
 
+	public function list(){
+		return $this->belongsTo('\App\Models\Lists', 'list_id');
+	}
 }
-
-?>
