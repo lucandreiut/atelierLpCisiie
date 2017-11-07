@@ -3,3 +3,4 @@ storage/
 web/images/
 tests/
 composer.lock
+config/database.php
