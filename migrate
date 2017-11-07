@@ -16,14 +16,16 @@ class Migrator {
         /**
          * create table for sentinel user
          */
-        if (!Capsule::schema()->hasTable('user')) {
-            Capsule::schema()->create('user', function($table)
+        if (!Capsule::schema()->hasTable('users')) {
+            Capsule::schema()->create('users', function($table)
             {
 
                 $table->integer('id', true);
-                $table->string('name');
+                $table->string('name')->default('');
                 $table->string('email');
                 $table->string('password');
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
                 // We'll need to ensure that MySQL uses the InnoDB engine to
                 // support the indexes, other engines aren't affected.
@@ -45,12 +47,12 @@ class Migrator {
                 $table->string('receiver');
                 $table->string('sharing_url');
                 //FK
-                $table->integer('user_id');
+                $table->integer('users_id');
 
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('user_id')->references('id')->on('user');
+                $table->foreign('users_id')->references('id')->on('users');
 
             });
         }
@@ -169,6 +171,107 @@ class Migrator {
             });
         }
 
+        if (!Capsule::schema()->hasTable('activations')) {
+            Capsule::schema()->create('activations', function($table)
+            {
+                $table->increments('id');
+                $table->integer('user_id');
+                $table->string('code')->nullable();
+                $table->tinyInteger('completed')->default(0);
+                $table->timestamp('completed_at')->nullable();
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+                $table->unique('user_id');
+            });
+        }
+        /**
+         * create persistences table
+         */
+        if (!Capsule::schema()->hasTable('persistences')) {
+            Capsule::schema()->create('persistences', function($table)
+            {
+				$table->increments('id');
+                $table->integer('user_id');
+                $table->string('code');
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+				$table->unique('code');
+            });
+        }
+		
+		/**
+         * create reminders table
+         */
+        if (!Capsule::schema()->hasTable('reminders')) {
+            Capsule::schema()->create('reminders', function($table)
+            {
+				$table->increments('id');
+                $table->integer('user_id');
+                $table->string('code');
+                $table->tinyInteger('completed')->default(0);
+                $table->timestamp('completed_at');
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+            });
+        }
+		
+		/**
+         * create roles table
+         */
+        if (!Capsule::schema()->hasTable('roles')) {
+            Capsule::schema()->create('roles', function($table)
+            {
+				$table->increments('id');
+                $table->string('slug');
+                $table->string('name');
+                $table->text('permissions');
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+				$table->unique('slug');
+            });
+        }
+		
+		/**
+         * create role_users table
+         */
+        if (!Capsule::schema()->hasTable('role_users')) {
+            Capsule::schema()->create('role_users', function($table)
+            {
+				$table->integer('user_id');
+                $table->integer('role_id');
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+                $table->primary(array('user_id', 'role_id'));
+            });
+        }
+        /**
+         * create throttle table
+         */
+        if (!Capsule::schema()->hasTable('throttle')) {
+            Capsule::schema()->create('throttle', function($table)
+            {
+                $table->increments('id');
+                $table->integer('user_id')->unsigned();
+                $table->string('type');
+                $table->string('ip')->nullable();
+                $table->timestamps();
+                // We'll need to ensure that MySQL uses the InnoDB engine to
+                // support the indexes, other engines aren't affected.
+                $table->engine = 'InnoDB';
+                $table->unique('user_id');
+            });
+        }
+
     }
 
     /**
@@ -193,6 +296,6 @@ class Migrator {
 $migrator = new Migrator();
 
 $migrator->migrate();
-// $migrator->seed();
+$migrator->seed();
 
 print("Migration Successfully");
