@@ -2,3 +2,4 @@ vendor/
 storage/
 web/images/
 tests/
+composer.lock
