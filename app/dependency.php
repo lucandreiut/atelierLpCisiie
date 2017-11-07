@@ -76,12 +76,20 @@ $container['ListController'] = function($c){
   return new \App\Controllers\ListController($c);
 };
 
+$container['ItemController'] = function($c){
+  return new \App\Controllers\ListController($c);
+};
+
 # -----------------------------------------------------------------------------
 # Factories Models
 # -----------------------------------------------------------------------------
 
 $container['Model\User'] = function ($c) {
     return new App\Models\User;
+};
+
+$container['Model\Item'] = function ($c) {
+    return new App\Models\Item;
 };
 
 # -----------------------------------------------------------------------------
