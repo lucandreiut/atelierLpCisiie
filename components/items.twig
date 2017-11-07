@@ -1,22 +1,48 @@
-{% extends 'templates/base_layout.twig' %}
+<!doctype html>
+<html lang="fr">
 
-	{% block title %}
-		{{ parent() }} Cadeaux
-	{% endblock %}
+	<head>
+
+		<!--<link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/Assets/css/styles.css">
+		<script type="text/javascript" src="/Assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/Assets/js/bootstrap.min.js"></script>-->
+
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Mecado - cadeaux
+			{% endblock %}
+		</title>
+
+			{% block custom_assets %}
+
+			{% endblock %}
+	</head>
+
+	<body>
+		<form action="">
+		  Nom du cadeau:<br>
+		  <input type="text" name="itemName">
+		  <br>
+		  Description du cadeau :<br>
+		  <input type="text" name="itemDescr">
+		  <br>
+		  Prix du cadeau:<br>
+		  <input type="text" name="itemPrice">
+		  <br>
+		  url du cadeau:<br>
+		  <input type="text" name="itemUrl">
+		  <br>
+		  Images du cadeau:<br>
+		  <input type="text" name="itemImages">
+		  <br>
+		  <br>
+		  <input type="submit" value="Ajouter cadeau">
+		</form> 
 
 
-	{% block custom_assets %}
-		<!--<link rel="stylesheet" type="text/css" href="Assets/css/shops.css">
-		<script type="text/javascript">
-			var shops = {{ shops|json_encode()|raw }};
-		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnDOHWzgqxTNqdkBPkTrhD1ou_CoaTNA&callback=initMap"></script>
-		<script type="text/javascript" src="/Assets/js/shops.js"></script>-->
-	{% endblock %}
+	</body>
+</html>
 
 
-	{% block content %}
-		<div class="container">
-			<h1>Hello World!</h1>
-		</div>
-	{% endblock %}

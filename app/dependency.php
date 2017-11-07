@@ -77,7 +77,7 @@ $container['ListController'] = function($c){
 };
 
 $container['ItemController'] = function($c){
-  return new \App\Controllers\ListController($c);
+  return new \App\Controllers\ItemController($c);
 };
 
 # -----------------------------------------------------------------------------
