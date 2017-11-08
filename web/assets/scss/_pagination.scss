@@ -1,0 +1,30 @@
+@import "variables.scss";
+
+.pagination {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        background: $dark;
+        color: $light_text;
+        width: 40px;
+        font-size: 120%;
+        font-weight: bolder;
+        text-align: center;
+        text-decoration: none;
+        
+        border: 1px solid $default;
+    }
+
+    li {
+        list-style: none;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 110%;
+        padding: 5px 0;
+    }   
+}

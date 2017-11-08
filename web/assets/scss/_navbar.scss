@@ -1,0 +1,58 @@
+@import "variables.scss";
+
+@mixin navbar() {
+    display: flex;
+    background: $dark;
+    font-weight: bolder;
+    font-size: 120%;
+
+    a {
+        color: $light_text;
+        text-decoration: none;
+    
+        &:hover {
+            background: darken($dark, 10);
+            transition: 200ms;
+        }
+    }
+
+    li {
+        list-style: none;
+        padding: 20px 20px;
+        margin: 0;
+    }
+}
+
+.v-navbar {
+	@include navbar;
+	flex-direction: column;
+	width: 200px;
+    margin: 0;
+    padding:0;
+}
+
+.h-navbar {
+    @include navbar;
+
+    justify-content: center;
+    padding: 0;
+
+    a {
+        width: 100%;
+        text-align: center;    
+    }
+}
+
+.disabled {
+	color: $dark_text;
+    cursor: default;
+
+    &:hover {
+        background: $dark;
+    }
+}
+
+.active {
+    color: lighten($light_text, 20);
+    background: lighten($dark, 5);
+}

@@ -5,4 +5,5 @@
 */
 //$app->get('/', 'UserController:index')->setName('index');
 
-$app->get('/lists', 'ListController:index')->setName('lists');
+$app->map(['GET', 'POST'], '/lists', 'ListController:lists')->setName('lists');
+$app->map(['GET', 'POST'], '/lists/add', 'ListController:add')->setName('addList');
