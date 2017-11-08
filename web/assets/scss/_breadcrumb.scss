@@ -1,0 +1,23 @@
+@import "variables.scss";
+
+.breadcrumb {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        color: lighten($dark_text, 20);
+        text-decoration: none;
+        padding: 0 5px;
+    
+        &:last-of-type {
+            color: $dark_text;
+        }    
+    }
+}

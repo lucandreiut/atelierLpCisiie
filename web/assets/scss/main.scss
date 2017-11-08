@@ -1,0 +1,194 @@
+@import '_button.scss';
+@import '_alert.scss';
+@import '_grid.scss';
+@import '_variables.scss';
+
+.error-alert {
+    @extend .row;
+
+    & div {
+        @extend .alert-danger;
+        @extend .col-8;
+        @extend .offset-2;
+        //background: red;
+
+        line-height: 1;
+        text-align: left;
+        font-size: 100%;
+        & p {
+            padding-left: 10px;
+        }
+    }
+}
+
+.form-create-list {
+    @extend .row;
+    color: $dark_text;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    & .form-content {
+        @extend .row;
+        @extend .col-6;
+        @extend .offset-3;
+
+        background: $default;
+        border-radius: 5px;
+
+        & .input {
+            @extend .row;
+            @extend .col-10;
+            @extend .offset-1;
+
+            padding: 10px 0px;
+            font-weight: bolder;
+            
+            display: flex;
+            flex-direction: column; 
+        }
+
+        & textarea {
+            resize: none;
+            height: 100px;
+        }
+    }
+}
+
+.add-list-button {
+    @extend .btn-flat-green;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 200%;
+    color: $dark_text;
+
+}
+
+.form-add-list {
+    @extend .row;
+    
+    & input {
+        @extend .col-6;
+        @extend .offset-3;
+    }
+}
+
+.list-of-lists {
+    @extend .row;
+
+    & div {
+        @extend .row;
+        @extend .col-10;
+        @extend .offset-1;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        & a {
+            @extend .col-10;
+            @extend .offset-1;
+
+            background: $default;
+            padding: 5px;
+            height: 60px;
+            
+            text-decoration: none;
+            font-size: 140%;
+            overflow: hidden;
+            color: $dark_text; 
+            border: 1px solid lighten($dark, 20);
+
+            display:flex;
+            flex-direction: column;
+
+            & span {
+                text-align: right;
+                font-size: 65%;
+                color: lighten($dark_text, 20);
+            }
+        
+            &:hover {
+                background: darken($default, 10);
+            }
+        }
+
+        & form {
+            & input[type="submit"] {
+                @extend .btn-flat-red;  
+                height: 72px;
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+    .form-create-list {
+        & .form-content {
+            @extend .col-md-8;
+            @extend .offset-md-2;
+        }
+    }
+
+    .list-of-lists {
+        & div {
+            @extend .col-md-12;
+            @extend .offset-md-0;
+
+            & a {
+                @extend .col-md-9;
+                @extend .offset-md-1;
+
+                font-size: 100%;
+
+                & span {
+                    font-size: 80%;
+                }
+            }
+        }
+    }
+
+    .form-add-list {
+        & input {
+            @extend .col-md-8;
+            @extend .offset-md-2;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+    .form-create-list {
+        & .form-content {
+            @extend .col-sm-12;
+            @extend .offset-sm-0;
+        }
+    }
+
+    .list-of-lists {
+        & div {
+            @extend .col-sm-12;
+            @extend .offset-sm-0;
+
+            & a {
+                @extend .col-sm-9;
+                @extend .offset-sm-0;
+
+                font-size: 100%;
+
+                & span {
+                    font-size: 80%;
+                }
+            }
+        }
+    }
+
+    .form-add-list {
+        & input {
+            @extend .col-sm-10;
+            @extend .offset-sm-1;
+        }
+    }
+}

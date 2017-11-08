@@ -1,0 +1,61 @@
+{% extends 'templates/base_layout.twig' %}
+
+{% block title %}
+	{{ parent() }} Listes
+{% endblock %}
+
+
+{% block custom_assets %}
+{% endblock %}
+
+
+{% block content %}
+	<div class="container">
+        <div class="error-alert">
+            <div>
+                {% for e in errors %}
+                    <p>{{ e }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+		<form class="form-create-list" action="/lists/add" method="POST" id="addList">
+            <div class="form-content">
+                <div class="input">
+                    <label for="title">Titre : </label><input id="title" type="text" name="title" placeholder="Votre titre" required>
+                </div>
+
+                <div class="input">
+                    <label for="description">Description : </label><textarea form="addList" id="description" class="description" type="text" name="description" placeholder="Votre description" required></textarea>
+                </div>
+                
+                <div class="input">
+                    <span>Êtes-vous le destinataire de la liste ?</span>
+                    <span>
+                        Oui
+                        <input id="yes" type="radio" name="self_targeted" value="true" checked>
+                    </span>
+                    
+                    <span>
+                        Non
+                        <input id="no" type="radio" name="self_targeted" value="false">
+                    </span>
+                </div>
+            
+                <div class="input">
+                    <label for="target">Sinon, précisez le destinataire : </label>
+                    <input id="target" type="text" name="target" placeholder="Nom">
+                </div>
+                
+                <div class="input">
+                    <label for="date">Date et heure d'expiration de la liste : </label>
+                    <input id="date" type="text" name="date" placeholder="01/01/2001 13:30:20" required>
+                </div>
+                
+                <div class="input">
+                    <input class="add-list-button" type="submit" value="Créer la liste">
+                </div>
+            </div>
+        </form>
+	</div>
+{% endblock %}

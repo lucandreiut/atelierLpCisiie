@@ -1,0 +1,110 @@
+@import "variables.scss";
+
+@mixin btn-struct($line-height, $font-size, $radius) {
+    line-height: $line-height;
+    font-size: $font-size;
+    border-radius: $radius;
+
+    text-align: center;
+	cursor: pointer;
+	padding: 0px 20px;
+	margin-bottom: 6px;
+}
+
+@mixin btn-font($color) {   
+    color: $color;
+}
+
+@mixin btn-color($bg-color, $shadow, $border) {
+    background: $bg-color;
+    box-shadow: 0 4px $shadow;
+    border: $border;
+
+    &:hover {
+        background-color: darken($bg-color, 10);
+    }
+
+    &:active {
+        background: darken($bg-color, 20);
+        transform: translateY(2px);
+        box-shadow: 0 2px $shadow;
+    }
+}
+
+@mixin btn($line-height: 3, $font-size: 120%, $radius: 6px, $color: $dark_text, $bg-color: $default, $shadow: grey, $border: none) {
+    @include btn-struct($line-height, $font-size, $radius);
+    @include btn-font($color);
+    @include btn-color($bg-color, $shadow, $border);
+}
+
+@mixin btn-flat($text: $dark_text, $bg: $default) {
+    @include btn(3, 120%, 0, $text, $bg, none);
+
+    &:active {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@mixin btn-round($text: $dark_text, $bg: $default) {
+    @include btn(3, 120%, 50%, $text, $bg, grey);
+
+	height: auto;
+	width: 60px;
+}
+
+@mixin btn-xl($text: $dark_text, $bg: $default) {
+    @include btn(3, 120%, 6px, $text, $bg, grey);
+	width: 100%;
+}
+
+$colors: "" "-red" "-green" "-blue" "-dark";
+$color-code: 0;
+$font-code: 0;
+
+@each $c in $colors {
+    @if $c == "-red" {
+        $font-code: $light_text;
+        $color-code: $danger;
+    }
+    @if $c == "-green" {
+        $font-code: $light_text;
+        $color-code: $success;
+    }
+    @if $c == "-blue" {
+        $font-code: $light_text;
+        $color-code: $info;
+    }
+    @if $c == "-dark" {
+        $font-code: $light_text;
+        $color-code: $dark;
+    }
+    @if $c == "" {
+        $font-code: $dark_text;
+        $color-code: $default;
+    }
+
+    .btn#{$c} {
+        @include btn(3, 120%, 6px, $font-code, $color-code, grey);
+    }
+
+    .btn-sm#{$c} {
+        @include btn(2.5, 100%, 6px, $font-code, $color-code, grey);
+    }
+
+    .btn-lg#{$c} {
+        @include btn(3.5, 140%, 6px, $font-code, $color-code, grey);
+    }
+
+    .btn-flat#{$c} {
+        @include btn-flat($font-code, $color-code);
+    }
+
+    .btn-round#{$c} {
+        @include btn-round($font-code, $color-code);
+    }
+
+    .btn-xl#{$c} {
+        @include btn-xl($font-code, $color-code);
+    }
+}

@@ -1,22 +1,35 @@
 {% extends 'templates/base_layout.twig' %}
 
-	{% block title %}
-		{{ parent() }} Listes
-	{% endblock %}
+{% block title %}
+	{{ parent() }} Listes
+{% endblock %}
 
 
-	{% block custom_assets %}
-		<!--<link rel="stylesheet" type="text/css" href="Assets/css/shops.css">
-		<script type="text/javascript">
-			var shops = {{ shops|json_encode()|raw }};
-		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnDOHWzgqxTNqdkBPkTrhD1ou_CoaTNA&callback=initMap"></script>
-		<script type="text/javascript" src="/Assets/js/shops.js"></script>-->
-	{% endblock %}
+{% block custom_assets %}
+{% endblock %}
 
 
-	{% block content %}
-		<div class="container">
-			<h1>Hello World!</h1>
+{% block content %}
+	<div class="container">
+		<p class="title">Mes listes</p>
+	
+		<form class="form-add-list" action="/lists/add" method="GET">
+			<input class="add-list-button" type="submit" value="Ajouter une liste">
+		</form>
+
+		<div class="list-of-lists">
+			{% for l in lists %}
+				<div>
+					<a href="/lists/{{ l.url }}/items">
+						{{ l.title }}
+						<span>Expire le {{ l.date }}</span>
+					</a>
+					<form action=" {{ path_for('lists') }} " method="post">
+						<input type="hidden" name="target" value="{{ l.id }}">
+						<input type="submit" value="X">
+					</form>
+				</div>
+			{% endfor %}
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}

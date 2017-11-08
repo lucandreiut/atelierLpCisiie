@@ -1,0 +1,196 @@
+@import "variables.scss";
+$h_size: 20px;
+
+body {
+	font-family: Arial, Arial, Helvetica, sans-serif;	
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bolder;
+	font-size: $h_size;
+	margin: 5px;
+}
+
+h1 {font-size: 300%;}
+h2 {font-size: 260%}
+h3 {font-size: 220%}
+h4 {font-size: 180%;}
+h5 {font-size: 140%;}
+h6 {font-size: 100%;}
+
+small, .subtitle {
+	font-size: 75%;
+	color: $dark_text;
+}
+
+p {
+	margin-bottom: 10px;	 
+}
+
+mark {
+	background-color: $dark;
+	color: $light_text;
+	padding: 2px;
+}
+
+del {
+	text-decoration: line-through $dark 2px;
+}
+
+ins, u {
+	border-bottom: 2px solid $dark;
+}
+
+strong {
+	font-weight: bolder;
+	font-size: 110%
+}
+
+em {
+	font-style: italic;
+	color: $dark_text;
+}
+
+abbr:hover {
+	color: steelblue;
+	transition: 600ms;
+}
+
+.left-align {
+	text-align: left;
+}
+
+.right-align {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.to-uppercase {
+	text-transform: uppercase;
+}
+
+.to-lowercase {
+	text-transform: lowercase;
+}
+
+ul {
+	list-style: circle;
+}
+
+li {
+	margin-left: 20px;
+}
+
+.square-list {
+	list-style: square;
+}
+
+.simple-list {
+	list-style: none;
+}
+
+blockquote {
+	margin: 5px;
+	margin-left: 75px;
+	margin-right: 75px;
+	padding: 10px;
+	background-color: $default;
+	border-left: 2px solid darken($default, 20);
+	color: $dark_text;
+}
+
+code {
+	font-family: monospace;
+	margin: 5px;
+	margin-left: 75px;
+	margin-right: 75px;
+	padding: 10px;
+	background-color: darken($dark, 20);
+	color: darken($success, 5);
+	display: block;
+	white-space: pre;
+}
+
+pre {
+	padding: 5px;
+	margin: 5px;
+}
+
+kbd {
+	background-color: $light_text;
+	color: $dark_text;
+	border: 1px solid darken($light_text, 25);
+	border-bottom: 3px solid darken($light_text, 25);
+	border-radius: 3px;
+	display: inline-block;
+	padding: 4px;
+	margin: 2px;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 5px;
+	color: $dark_text;
+}
+
+caption {
+	font-weight: bolder;
+	border: 2px solid darken($dark, $amount: 20);
+	border-radius: 10px 10px 0 0;
+	border-bottom: none;
+	padding: 5px;
+	background: $dark;
+	color: $light_text;
+}
+
+th {
+	border: 2px solid darken($dark, $amount: 20);
+	padding: 5px;
+}
+
+td {
+	border: 2px solid darken($dark, $amount: 20);
+	padding: 5px;
+}
+
+.alternate-line {
+	background-color: $default;
+}
+
+.full-border {
+	border: 6px groove darken($dark, $amount: 20);
+	font-weight: bolder;
+
+	caption {
+		border: 6px groove darken($dark, $amount: 20);
+	}
+
+	th {
+		border: 6px groove darken($dark, $amount: 20);
+	}
+
+	td {
+		border: 6px groove darken($dark, $amount: 20);
+	}
+}
+
+tr {
+	background-color: white;
+}
+
+.line-hover {
+	transition: 500ms;
+
+	&:hover {
+		background-color: $dark;
+		color: $light_text;	
+	}
+}
