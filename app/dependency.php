@@ -100,6 +100,10 @@ $container['Model\Contributor'] = function ($c) {
     return new App\Models\Contributor;
 };
 
+$container['Model\Message'] = function ($c) {
+    return new App\Models\Message;
+};
+
 # -----------------------------------------------------------------------------
 # Factories Repositories
 # -----------------------------------------------------------------------------
