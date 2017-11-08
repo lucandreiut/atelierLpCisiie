@@ -9,11 +9,15 @@
 */
 class Item extends Model
 {
-	private $primarykey = 'id';
-	private $table = 'item';
-	private $timestamps = false;
+	protected $primarykey = 'id';
+	protected $table = 'item';
+	public $timestamps = false;
 
 	public function list(){
 		return $this->belongsTo('\App\Models\Lists', 'list_id');
+	}
+
+	public function images(){
+		return $this->hasMany('\App\Models\Image');
 	}
 }

@@ -68,12 +68,12 @@ class Migrator {
                 $table->text('message');
                 $table->timestamp('date');
                 //FK
-                $table->integer('list_id');
+                $table->integer('lists_id');
 
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('list_id')->references('id')->on('list');
+                $table->foreign('lists_id')->references('id')->on('list');
             });
         }
 		
@@ -89,12 +89,12 @@ class Migrator {
                 $table->boolean('is_crowdfundable');
                 $table->double('current_contribution');
                 $table->boolean('is_reserved');
-                $table->integer('list_id');
+                $table->integer('lists_id');
 
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('list_id')->references('id')->on('list');
+                $table->foreign('lists_id')->references('id')->on('list');
             });
         }
 
@@ -115,13 +115,13 @@ class Migrator {
                 //FK
                 $table->integer('group_id')->nullable();
                 //FK
-                $table->integer('list_id')->nullable();
+                $table->integer('lists_id')->nullable();
 
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
                 $table->foreign('group_id')->references('id')->on('group');
-                $table->foreign('list_id')->references('id')->on('list');
+                $table->foreign('lists_id')->references('id')->on('list');
                 
             });
         }
