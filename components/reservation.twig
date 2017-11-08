@@ -1,41 +1,35 @@
-<!doctype html>
-<html lang="fr">
+{% extends 'templates/base_layout.twig' %}
 
-	<head>
-
-		<!--<link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="/Assets/css/styles.css">
-		<script type="text/javascript" src="/Assets/js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="/Assets/js/bootstrap.min.js"></script>-->
-
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}
-				Mecado - réservation
-			{% endblock %}
-		</title>
-
-			{% block custom_assets %}
-
-			{% endblock %}
-	</head>
-
-	<body>
-		<form action="{{path_for('reserve_validation', {id: item.id})}}" method="post">
-		{{item.title}}, {{item.price}}€ <br>
-		{{item.description}}<br>
-		  Nom :<br>
-		  <input type="text" name="userName">
-		  <br>
-		  Message :<br>
-		  <input type="text" name="userMsg">
-		  <br>
-		  <input type="submit" value="Réserver cadeau" >
-		  <input type="hidden" value="{{item.id}}" name="item_id" />
-		</form> 
+{% block title %}
+	{{ parent() }} Réserver un cadeau
+{% endblock %}
 
 
-	</body>
-</html>
+{% block custom_assets %}
+{% endblock %}
+
+
+	{% block content %}
+		<p class="title">
+		{{item.title}} <br/>
+		{{item.price}}€
+		</p>
+		<form class="form-create-list" action="{{path_for('reserve_validation', {id: item.id})}}" method="POST" id="addList">
+            <div class="form-content">
+                <div class="input">
+                    <label for="nom">Nom : </label><input id="nom" type="text" name="userName" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input">
+                    <label for="message">Message : </label><textarea form="addList" id="message" class="message" type="text" name="userMsg" placeholder="Votre message" required></textarea>
+                </div>
+                <div class="input">
+                    <input class="add-list-button" type="submit" value="Réserver le cadeau">
+                </div>
+		 		 <input type="hidden" value="{{item.id}}" name="item_id" />
+            </div>
+        </form>
+
+	{% endblock %}
 
 

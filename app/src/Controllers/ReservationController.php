@@ -13,13 +13,6 @@ class ReservationController extends BaseController
 	public function index($request, $response, $args){
 		$item = Item::find($request->getAttribute('route')->getArgument('id'));
 		$verif = $this->verification($item->id);
-		//if(empty($item)){
-		//	die('Item not found '.$request->getParam('id'));
-		//}
-
-		//if(!$verif){
-		//	die('error');
-		//}
 
 		return $this->container->view->render($response, 'reservation.twig', array('item' => $item));
 	}
@@ -33,7 +26,9 @@ class ReservationController extends BaseController
 			$contributor = new ContributorController;
 			$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
 		}
-		return $this->container->view->render($response, 'reservation.twig', array('item' => $item));
+		// return $this->container->view->render($response, 'reservation.twig', array('item' => $item));
+
+		return $response->withRedirect('/lists');
 	}
 
 	public function verification($id){
