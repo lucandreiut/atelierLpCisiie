@@ -82,6 +82,9 @@ $container['ReservationController'] = function($c){
 
 $container['ContributorController'] = function($c){
   return new \App\Controllers\ContributorController($c);
+
+$container['ItemController'] = function($c){
+  return new \App\Controllers\ItemController($c);
 };
 
 # -----------------------------------------------------------------------------
@@ -129,3 +132,10 @@ $container['Mailer'] = function ($c) {
         $c->get('view')
     );
 };
+
+
+/*
+** Add upload directory path
+*/
+
+$container['upload_path'] = __DIR__.'/../web/assets/images';

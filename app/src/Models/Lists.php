@@ -15,4 +15,8 @@ class Lists extends Model
     {
         return $this->belongsTo('\App\Models\Users', 'users_id');
     }
+
+    public function items(){
+    	return $this->hasMany('\App\Models\Item');
+    }
 }
