@@ -1,0 +1,25 @@
+{% extends 'templates/base_layout.twig' %}
+
+	{% block title %}
+		{{ parent() }} Cadeaux
+	{% endblock %}
+
+
+	{% block custom_assets %}
+
+	{% endblock %}
+
+
+	{% block content %}
+		<div class="container">
+			<ul>
+			{% for item in items %}
+				<li>{{item.title}}</li>
+			{% endfor %}
+			</ul>
+			<form action="{{path_for('add_item_page', {id : app.request.get('id')})}}" method="get">
+			    <button type="submit">Ajouter nouveau</button>
+			</form>
+			
+		</div>
+	{% endblock %}

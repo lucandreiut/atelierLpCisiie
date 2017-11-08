@@ -76,6 +76,10 @@ $container['ListController'] = function($c){
   return new \App\Controllers\ListController($c);
 };
 
+$container['ItemController'] = function($c){
+  return new \App\Controllers\ItemController($c);
+};
+
 # -----------------------------------------------------------------------------
 # Factories Models
 # -----------------------------------------------------------------------------
@@ -109,3 +113,10 @@ $container['Mailer'] = function ($c) {
         $c->get('view')
     );
 };
+
+
+/*
+** Add upload directory path
+*/
+
+$container['upload_path'] = __DIR__.'/../web/assets/images';
