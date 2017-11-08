@@ -25,7 +25,7 @@ class ListController extends BaseController
 		Sentinel::authenticate($credentials);
 
 		if(! $user = Sentinel::check())
-			return $response->widthRedirect('/login');
+			return $response->withRedirect('/login');
 
 		$lists = Users::find($user['id'])->lists;
 
