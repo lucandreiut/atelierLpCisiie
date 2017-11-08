@@ -18,7 +18,7 @@ class ReservationController extends BaseController
 	}
 
 	public function reserve($request, $response, $args){
-		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		$item = Item::find($request->getAttribute('route')->getArgument('iditem'));
 		$verif = $this->verification($item->id);
 		if($verif){
 			$item->is_reserved = 1;

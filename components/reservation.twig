@@ -14,7 +14,7 @@
 		{{item.title}} <br/>
 		{{item.price}}€
 		</p>
-		<form class="form-create-list" action="{{path_for('reserve_validation', {id: item.id})}}" method="POST" id="addList">
+		<form class="form-create-list" action="{{path_for('reserve_validation', {iditem: item.id})}}" method="POST" id="addList">
             <div class="form-content">
                 <div class="input">
                     <label for="nom">Nom : </label><input id="nom" type="text" name="userName" placeholder="Votre nom" required>
