@@ -82,6 +82,7 @@ $container['ReservationController'] = function($c){
 
 $container['ContributorController'] = function($c){
   return new \App\Controllers\ContributorController($c);
+};
 
 $container['ItemController'] = function($c){
   return new \App\Controllers\ItemController($c);
