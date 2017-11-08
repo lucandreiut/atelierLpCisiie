@@ -16,4 +16,8 @@ class Item extends Model
 	public function list(){
 		return $this->belongsTo('\App\Models\Lists', 'list_id');
 	}
+
+	public function images(){
+		return $this->hasMany('\App\Models\Image');
+	}
 }

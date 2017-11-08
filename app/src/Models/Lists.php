@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lists extends Model 
 {
-    private $table = "list";
-    private $primarykey = "id";
+    protected $table = "list";
+    protected $primarykey = "id";
 
     public $timestamps = false;
 
     public function user() 
     {
         return $this->belongsTo('\App\Models\Users', 'users_id');
+    }
+
+    public function items(){
+    	return $this->hasMany('\App\Models\Item');
     }
 }

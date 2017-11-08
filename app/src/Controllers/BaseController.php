@@ -13,4 +13,8 @@
 		{
 			$this->container = $container;
 		}
+
+		public function get($key){
+			return $this->container[$key];
+		}
 	}
