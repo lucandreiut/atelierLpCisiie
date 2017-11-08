@@ -3,14 +3,14 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+class Users extends Model {
 
     protected $table = 'users';
     protected $primarykey = 'id';
-    private $timestamps = false;
+    public $timestamps = false;
 
-    private function lists() {
-        return $this->hasMany('\App\Models\List');
+    public function lists() {
+        return $this->hasMany('\App\Models\Lists');
     }
 
 

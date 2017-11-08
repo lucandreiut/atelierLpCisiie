@@ -1,0 +1,63 @@
+@mixin container($largeur: 100%) {
+    width: $largeur;
+} 
+
+@mixin row() {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container {
+    @include container(100%);
+}
+
+.row {
+    @include row();
+}
+
+@for $i from 1 through $cols {
+    .col-#{$i} {
+        flex-basis: (100 / ($cols / $i) ) * 1%;
+    }
+
+    .offset-#{$i} {
+        margin-left: (100 / ($cols / $i) ) * 1%;
+    }
+}
+
+.offset-0 {
+    margin-left: 0;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+    @for $i from 1 through $cols {
+        .col-md-#{$i} {
+            flex-basis: (100 / ($cols / $i) ) * 1%;            
+        }
+    
+        .offset-md-#{$i} {
+            margin-left: (100 / ($cols / $i) ) * 1%;
+        }
+    }
+
+    .offset-md-0 {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+    @for $i from 1 through $cols {
+        .col-sm-#{$i} {
+            flex-basis: (100 / ($cols / $i) ) * 1%;        
+        }
+
+        .offset-sm-#{$i} {
+            margin-left: (100 / ($cols / $i) ) * 1%;    
+        }
+    }
+
+    .offset-sm-0 {
+        margin-left: 0;
+    }
+}

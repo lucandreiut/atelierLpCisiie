@@ -1,0 +1,32 @@
+@import "variables.scss";
+
+.alert {
+    //width: 100%;
+	color: $light_text;
+	line-height: 4;
+	font-weight: bolder;
+	text-align: center;
+    font-size: 120%;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+.alert-success {
+    @extend .alert;
+	background: $success;
+}
+
+.alert-info {
+	@extend .alert;
+	background: $info;
+}
+
+.alert-warning {
+	@extend .alert;
+	background: $warning;
+}
+
+.alert-danger {
+    @extend .alert;
+    background: $danger;
+}
