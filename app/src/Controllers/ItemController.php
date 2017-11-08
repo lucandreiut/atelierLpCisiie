@@ -17,7 +17,7 @@ class ItemController extends BaseController
 			die('empty');
 		}
 		$items = $list->items;
-		return $this->container->view->render($response, 'items.twig', array('items' => $items));
+		return $this->container->view->render($response, 'items.twig', array('items' => $items, 'url' => $list->sharing_url));
 	}
 
 	public function addItem($request, $response, $args){
@@ -98,7 +98,7 @@ class ItemController extends BaseController
 		}
 		//If it's a get request we show the add item form
 		else{
-			$list = Lists::find($request->getAttribute('route')->getArgument('id'));
+			$list = Lists::where('sharing_url','LIKE' , $request->getAttribute('route')->getArgument('id'))->first();
 			if(empty($list)){
 				die('empty');
 			}

@@ -3,6 +3,12 @@
 
 $container = $app->getContainer();
 
+/*
+** Add upload directory path
+*/
+
+$container['upload_path'] = __DIR__.'/../web/assets/images';
+
 // view renderer
 $container['renderer'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
@@ -25,6 +31,7 @@ $container['view'] = function ($c) {
     // $view->getEnvironment()->addGlobal('baseUrl', '/issam/ShoesRental');
     $view->getEnvironment()->addGlobal('session', $_SESSION);    
     $view->getEnvironment()->addGlobal('flash', $c['flash']);
+    $view->getEnvironment()->addGlobal('upload_path', '/web/assets/images/');
     return $view;
 };
 
@@ -114,9 +121,3 @@ $container['Mailer'] = function ($c) {
     );
 };
 
-
-/*
-** Add upload directory path
-*/
-
-$container['upload_path'] = __DIR__.'/../web/assets/images';
