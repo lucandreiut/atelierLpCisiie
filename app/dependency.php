@@ -76,8 +76,12 @@ $container['ListController'] = function($c){
   return new \App\Controllers\ListController($c);
 };
 
-$container['ItemController'] = function($c){
-  return new \App\Controllers\ItemController($c);
+$container['ReservationController'] = function($c){
+  return new \App\Controllers\ReservationController($c);
+};
+
+$container['ContributorController'] = function($c){
+  return new \App\Controllers\ContributorController($c);
 };
 
 # -----------------------------------------------------------------------------
@@ -90,6 +94,10 @@ $container['Model\User'] = function ($c) {
 
 $container['Model\Item'] = function ($c) {
     return new App\Models\Item;
+};
+
+$container['Model\Contributor'] = function ($c) {
+    return new App\Models\Contributor;
 };
 
 # -----------------------------------------------------------------------------

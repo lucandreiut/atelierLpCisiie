@@ -11,7 +11,7 @@
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}
-				Mecado - cadeaux
+				Mecado - réservation
 			{% endblock %}
 		</title>
 
@@ -21,24 +21,17 @@
 	</head>
 
 	<body>
-		<form action="">
-		  Nom du cadeau:<br>
-		  <input type="text" name="itemName">
+		<form action="{{path_for('reserve_validation', {id: item.id})}}" method="post">
+		{{item.title}}, {{item.price}}€ <br>
+		{{item.description}}<br>
+		  Nom :<br>
+		  <input type="text" name="userName">
 		  <br>
-		  Description du cadeau :<br>
-		  <input type="text" name="itemDescr">
+		  Message :<br>
+		  <input type="text" name="userMsg">
 		  <br>
-		  Prix du cadeau:<br>
-		  <input type="text" name="itemPrice">
-		  <br>
-		  url du cadeau:<br>
-		  <input type="text" name="itemUrl">
-		  <br>
-		  Images du cadeau:<br>
-		  <input type="text" name="itemImages">
-		  <br>
-		  <br>
-		  <input type="submit" value="Ajouter cadeau">
+		  <input type="submit" value="Réserver cadeau" >
+		  <input type="hidden" value="{{item.id}}" name="item_id" />
 		</form> 
 
 

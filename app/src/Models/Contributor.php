@@ -7,14 +7,13 @@
 /**
 * The item model
 */
-class Item extends Model
+class Contributor extends Model
 {
 	protected $primarykey = 'id';
-	protected $table = 'item';
+	protected $table = 'contributor';
 	public $timestamps = false;
 
-	public function list(){
-		return $this->belongsTo('\App\Models\Lists', 'list_id');
+	public function item(){
+		return $this->haOne('\App\Models\Item', 'item_id');
 	}
-
 }
