@@ -8,7 +8,7 @@ use App\Models\Lists;
 /**
 * 
 */
-class ReservationController extends BaseController
+class MessageController extends BaseController
 {
 	public function send($request, $response, $args){
 		$list = Lists::find($request->getAttribute('route')->getArgument('id'));
@@ -22,9 +22,21 @@ class ReservationController extends BaseController
 	}
 
 	public function findAll($request, $response, $args){
-		$list = Lists::find($request->getAttribute('route')->getArgument('id'));
 
-	
+		$list = Lists::where('sharing_url','like',$request->getAttribute('route')->getArgument('id'))->first();
+		$messages = Message::where('list_id','=',$list->id)->get();
+
+		$array = (array) $messages;
+
+		foreach ($messages as $value) {
+ 		   echo $value->name.' : ';
+ 		   echo '<br/>';
+ 		   echo $value->message;
+ 		   echo '<br/>';
+ 		   echo '<br/>';
+		}
+
+		return $this->container->view->render($response, 'message.twig', $array);
 
 	}
 

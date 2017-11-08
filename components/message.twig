@@ -1,0 +1,26 @@
+{% extends 'templates/base_layout.twig' %}
+
+{% block title %}
+    {{ parent() }} Messages
+{% endblock %}
+
+
+{% block custom_assets %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <p class="title">Discussion</p>
+        <div>
+            {% for m in array %}
+                <div>
+                    <p>{{ m.name }} : <br/>
+                        {{ m.message }} <br/>
+                        <br/>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

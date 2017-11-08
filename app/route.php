@@ -14,6 +14,8 @@ $app->get('/lists/{id}/items', 'ItemController:getItemsByList')->setName('get_it
 $app->get('/lists/{id}/items/add', 'ItemController:addItem')->setName('add_item_page');
 $app->post('/lists/{id}/items/add', 'ItemController:addItem')->setName('add_item_action');
 
+$app->get('/lists/{id}/message', 'MessageController:findAll')->setName('message');
+
 $app->get('/items/{id}/reservation', 'ReservationController:index')->setName('reservation');
 $app->post('/items/{id}/reservation', 'ReservationController:reserve')->setName('reserve_validation');
 

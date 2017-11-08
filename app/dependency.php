@@ -95,6 +95,9 @@ $container['ItemController'] = function($c){
   return new \App\Controllers\ItemController($c);
 };
 
+$container['MessageController'] = function($c){
+  return new \App\Controllers\MessageController($c);
+};
 # -----------------------------------------------------------------------------
 # Factories Models
 # -----------------------------------------------------------------------------

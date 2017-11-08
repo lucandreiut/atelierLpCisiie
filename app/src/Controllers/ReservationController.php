@@ -18,7 +18,7 @@ class ReservationController extends BaseController
 	}
 
 	public function reserve($request, $response, $args){
-		$item = Item::find($request->getAttribute('route')->getArgument('iditem'));
+		$item = Item::find($request->getAttribute('route')->getArgument('id'));
 		$verif = $this->verification($item->id);
 		if($verif){
 			$item->is_reserved = 1;
@@ -26,7 +26,6 @@ class ReservationController extends BaseController
 			$contributor = new ContributorController;
 			$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
 		}
-		// return $this->container->view->render($response, 'reservation.twig', array('item' => $item));
 
 		return $response->withRedirect('/lists');
 	}
@@ -34,9 +33,10 @@ class ReservationController extends BaseController
 	public function verification($id){
 		$boolean = false;
 		$item = Item::find($id);
-		$list = Lists::find($item->list_id);
+		$list = Lists::find($item->lists_id);
 		$datenow = time();
 		$target = strtotime($list->limit_date);
+		
 
 		if (!empty($item)){
 			if (!$item->is_reserved){

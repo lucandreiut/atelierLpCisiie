@@ -118,4 +118,5 @@ class ListController extends BaseController
 			return $response->widthRedirect('/lists');
 		}
 	}
+
 }
