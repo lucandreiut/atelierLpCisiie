@@ -13,6 +13,7 @@
 
 	{% block content %}
 		<div class="container">
+			{{errors | json_encode}}
 			{% if list is not null %}
 			<h2>Ajout d'un cadeau à la liste {{ list.title }}</h2>
 			{% else %}
@@ -26,7 +27,7 @@
 				{% endif %}
 
 				<label for="description">Description: </label>
-				<textarea type="text" name="description" id="description" value="{{old.description? old.description:''}}"></textarea>
+				<textarea type="text" name="description" id="description">{{old.description? old.description:''}}</textarea>
 				{% if errors.description is not null %}
 				<span class="erreurValidation">{{errors.description}}</span>
 				{% endif %}
