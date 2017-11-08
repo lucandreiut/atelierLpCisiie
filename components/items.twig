@@ -6,18 +6,32 @@
 
 
 	{% block custom_assets %}
-
 	{% endblock %}
 
 
 	{% block content %}
-		<div class="container">
-			<ul>
+		<div class="itemsListContainer">
+			<ul class="itemsList">
 			{% for item in items %}
-				<li>{{item.title}}</li>
+				<li class="item">
+					<div class="itemImage">
+						{% if item.images|length >= 1 %}
+						<img src="{{ upload_path ~ (item.images|first).url }}"/>
+						{% endif %}
+					</div>
+					<div class="itemInformation">
+						<h2 class="itemTitle">{{item.title}}</h2>
+						{% if item.url %}
+						<a href="{{item.url}}" class="itemUrl">Page du cadeau</a>
+						{% endif %}
+					</div>
+					<div class="itemPrice">
+						
+					</div>
+				</li>
 			{% endfor %}
 			</ul>
-			<form action="{{path_for('add_item_page', {id : app.request.get('id')})}}" method="get">
+			<form action="{{path_for('add_item_page', {id : url})}}" method="get">
 			    <button type="submit">Ajouter nouveau</button>
 			</form>
 			
