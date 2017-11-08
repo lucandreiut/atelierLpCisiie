@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lists extends Model 
 {
-    private $table = "list";
-    private $primarykey = "id";
+    protected $table = "list";
+    protected $primarykey = "id";
 
     public $timestamps = false;
 

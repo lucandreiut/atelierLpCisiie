@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+@mixin link {
+    color: $dark;
+    text-decoration: none;
+}
+
+a {
+    @include link;
+}
+
+$colors: "" "-dark" "-red" "-green" "-blue";
+$bg: "";
+$text: "";
+
+@each $c in $colors {
+    @if $c == "" {
+        $bg: $default;
+        $text: $dark_text;
+    }
+    @if $c == "-dark" {
+        $bg: $dark;
+        $text: $light_text;
+    }
+    @if $c == "-red" {
+        $bg: $danger;
+        $text: $light_text;
+    }
+    @if $c == "-green" {
+        $bg: $success;
+        $text: $light_text;
+    }
+    @if $c == "-blue" {
+        $bg: $info;
+        $text: $light_text;
+    }
+
+    .link#{$c} {
+        @include link;
+        color: $text;
+        background: $bg;
+        border-radius: 15px;
+        line-height: 2.5;
+        padding: 10px;
+    }
+}

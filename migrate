@@ -24,8 +24,9 @@ class Migrator {
                 $table->string('name')->default('');
                 $table->string('email');
                 $table->string('password');
-                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
-                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('updated_at')->default(Capsule::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+                $table->timestamp('created_at')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('last_login')->default(Capsule::raw('CURRENT_TIMESTAMP'));
 
                 // We'll need to ensure that MySQL uses the InnoDB engine to
                 // support the indexes, other engines aren't affected.
@@ -42,7 +43,7 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('title');
                 $table->string('description');
-                $table->timestamp('limit_date');
+                $table->timestamp('limit_date')->default(Capsule::raw('CURRENT_TIMESTAMP'));
                 $table->boolean('is_self_target');
                 $table->string('receiver');
                 $table->string('sharing_url');
@@ -53,7 +54,6 @@ class Migrator {
 
                 //Foreign keys declaration
                 $table->foreign('users_id')->references('id')->on('users');
-
             });
         }
 
