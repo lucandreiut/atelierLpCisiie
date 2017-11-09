@@ -14,13 +14,6 @@ class ListController extends BaseController
 		if($request->isPost())
 			$this->remove($request, $response, $args);
 
-		$credentials = [
-			'email' => 'admin@mecado.fr',
-			'password' => 'admin'
-		];
-
-		Sentinel::authenticate($credentials);
-
 		if(! $user = Sentinel::check())
 			return $response->withRedirect('/login');
 	
