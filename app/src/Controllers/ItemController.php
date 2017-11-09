@@ -104,7 +104,7 @@ class ItemController extends BaseController
 			}
 			if(count($errors) > 1 || count($errors['general']) > 0){
 				$_SESSION['errors'] = $errors;
-				return $response->withRedirect($this->get('router')->pathFor('add_item_page', array('id' => $list->id)));
+				return $response->withRedirect($this->get('router')->pathFor('add_item_page', array('id' => $list->sharing_url)));
 			}
 		}
 		//If it's a get request we show the add item form

@@ -6,7 +6,7 @@ $capsule->addConnection([
     'host'      => 'localhost',
     'database'  => 'mecado',
     'username'  => 'root',
-    'password'  => 'root',
+    'password'  => '',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => 'mecado_',

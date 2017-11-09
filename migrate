@@ -87,7 +87,7 @@ class Migrator {
                 $table->string('title');
                 $table->double('total_price');
                 $table->boolean('is_crowdfundable');
-                $table->double('current_contribution');
+                $table->double('current_contribution')->default(0);
                 $table->boolean('is_reserved');
                 $table->integer('lists_id');
 
@@ -110,8 +110,8 @@ class Migrator {
                 $table->double('price');
                 $table->string('url');
                 $table->boolean('is_crowdfundable');
-                $table->double('current_contribution');
-                $table->boolean('is_reserved');
+                $table->double('current_contribution')->default(0);
+                $table->boolean('is_reserved')->default(0);
                 //FK
                 $table->integer('group_id')->nullable();
                 //FK
