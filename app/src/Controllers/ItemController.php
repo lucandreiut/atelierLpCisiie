@@ -20,6 +20,17 @@ class ItemController extends BaseController
 		return $this->container->view->render($response, 'items.twig', array('items' => $items, 'url' => $list->sharing_url));
 	}
 
+	/*
+	**Get single item details
+	*/
+	public function getItem($request, $response, $args){
+		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		if(empty($item)){
+			die('Item not found');
+		}
+		return $this->get('view')->render($response, 'item_details.twig', array('item' => $item));
+	}
+
 	public function addItem($request, $response, $args){
 		//If the http request is a post request
 		//We handle the form to add a new item
@@ -106,5 +117,27 @@ class ItemController extends BaseController
 		}
 
 	}
+
+	/*
+	** Delete item
+	*/
+
+	public function deleteItem($request, $response, $args){
+		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		if(empty($item)){
+			die('Cadeau introuvable');
+		}
+		if($item->limit_date > new \Datetime()){
+			die('Cadeau introuvable');
+		}
+		/*
+		* Here goes the authentication logic
+		*/
+		$sharing_url = $item->lists->sharing_url;
+		$item->delete();
+
+		return $response->withRedirect($this->get('router')->pathFor('get_items_by_list', array('id' => $sharing_url)));
+	}
+
 }
 
