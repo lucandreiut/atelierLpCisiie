@@ -32,6 +32,7 @@ $container['view'] = function ($c) {
     $view->getEnvironment()->addGlobal('session', $_SESSION);    
     $view->getEnvironment()->addGlobal('flash', $c['flash']);
     $view->getEnvironment()->addGlobal('upload_path', '/web/assets/images/');
+    $view->getEnvironment()->addGlobal('auth_check', \App\Controllers\AuthController::checkAuth());
     return $view;
 };
 
@@ -86,6 +87,10 @@ $container['ListController'] = function($c){
 $container['ItemController'] = function($c){
   return new \App\Controllers\ItemController($c);
 };
+
+$container['AuthController'] = function($c){
+    return new \App\Controllers\AuthController($c);
+  };  
 
 # -----------------------------------------------------------------------------
 # Factories Models
