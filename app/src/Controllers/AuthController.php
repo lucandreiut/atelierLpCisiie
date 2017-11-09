@@ -12,6 +12,14 @@ class AuthController extends BaseController
         return Sentinel::check() ? true : false;
     }
 
+    public function index($request, $response, $args)
+    {
+        if(Sentinel::check())
+            return $response->withRedirect('lists');
+        else    
+            return $response->withRedirect('login');
+    }
+
     public function inscription($request, $response, $args) 
     {
         $data = [];
