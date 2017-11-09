@@ -1,6 +1,6 @@
 vendor/
 storage/
-web/images/
+web/assets/images/
 tests/
 composer.lock
 config/database.php

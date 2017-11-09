@@ -11,12 +11,21 @@
 
 	{% block content %}
 		<div class="itemsListContainer">
+			<div class="addNewItem">
+				<div class="addNewItemForm">
+					<div class="control">
+				   		<a title="Ajouter nouveau" type="submit" href="{{path_for('add_item_page', {id : url})}}">+</a>
+					</div>
+				</form>
+			</div>
 			<ul class="itemsList">
 			{% for item in items %}
 				<li class="item">
 					<div class="itemImage">
 						{% if item.images|length >= 1 %}
 						<img src="{{ upload_path ~ (item.images|first).url }}"/>
+						{% else %}
+						<img src="{{ upload_path ~ 'gift.png' }}"/>
 						{% endif %}
 					</div>
 					<div class="itemInformation">
@@ -24,16 +33,19 @@
 						{% if item.url %}
 						<a href="{{item.id}}" class="itemUrl">Page du cadeau</a>
 						{% endif %}
+						<form action="{{path_for('item_details', {id: item.id})}}">
+							<button class="itemDetails">Détails</button>
+						</form>
 					</div>
 					<div class="itemPrice">
-						
+						<span class="itemPriceDegits">{{item.price}}€</span>
 					</div>
+					<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">
+						<button type="submit" class="itemDeleteButton">X</button>
+					</form>
 				</li>
 			{% endfor %}
 			</ul>
-			<form action="{{path_for('add_item_page', {id : url})}}" method="get">
-			    <button type="submit">Ajouter nouveau</button>
-			</form>
 
 			<form action="{{path_for('message', {id : url})}}" method="get">
 			    <button type="submit">Discuter</button>
