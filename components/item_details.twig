@@ -38,7 +38,7 @@
 						<div class="smallImagesRow">
 						{% for image in item.images %}
 							{% if loop.index != 1 %}
-								{% if (loop.index - 1) is divisible by (2) and loop.index != 1 %}
+								{% if (loop.index) is divisible by (2) and loop.index >= 4 %}
 								</div>
 								<div class="smallImagesRow">
 								{% endif %}
@@ -59,9 +59,28 @@
 					{% if item.url %}
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>
 					{% endif %}
-					{% if not item.is_reserved %}
-					<a href="{{path_for('reservation', {id: item.id})}}" class="itemReservationRequest">Réserver</a>
+					{% if not (item.is_reserved or date(item.lists.limit_date) <= date() or (auth_check is not null and auth_check.id == item.lists.user.id and item.lists.is_self_target)) %}
+						<a href="{{path_for('reservation', {id: item.id})}}" class="itemReservationRequest">Réserver</a>
 					{% endif %}
+				</div>
+				<div class="itemMessages">
+				{% if item.is_reserved or item.current_contribution != 0 %}
+					{{item.is_crowdfundable?'<h3>Contributions</h3>':''}}
+
+						<ul class="itemMessagesList">
+						{% for contributor in item.contributors %}
+							<li class="itemMessageText">
+								{% if date(item.lists.limit_date) <= date() or auth_check is null or (auth_check is not null and item.lists.user.id != auth_check.id and not item.lists.is_self_target) %}
+									<h4>{{item.is_crowdfundable?'Par':'Réservé par'}} {{contributor.name}}</h4>
+								{% endif %}
+								{% if date(item.lists.limit_date) <= date() %}
+								<p>{{contributor.message}}</p>
+								{% endif %}
+							</li>
+						{% endfor %}
+						</ul>
+
+				{% endif %}
 				</div>
 			</div>
 		</div>

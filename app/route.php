@@ -9,7 +9,7 @@
 $app->get('/lists/{id}/items', 'ItemController:getItemsByList')->setName('get_items_by_list');
 //Item details page
 
-$app->get('/items/{id}', 'ItemController:getItem')->setName('item_details');
+$app->get('/lists/{url}/items/{id}', 'ItemController:getItem')->setName('item_details');
 //Add item form page
 $app->get('/lists/{id}/items/add', 'ItemController:addItem')->setName('add_item_page');
 
