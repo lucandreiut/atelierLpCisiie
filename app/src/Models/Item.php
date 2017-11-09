@@ -14,7 +14,7 @@ class Item extends Model
 	public $timestamps = false;
 
 	public function list(){
-		return $this->belongsTo('\App\Models\Lists', 'list_id');
+		return $this->belongsTo('\App\Models\Lists', 'lists_id');
 	}
 
 	public function images(){
