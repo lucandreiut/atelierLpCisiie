@@ -26,26 +26,35 @@ class MessageController extends BaseController
 		$list = Lists::where('sharing_url','like',$request->getAttribute('route')->getArgument('id'))->first();
 		$messages = Message::where('list_id','=',$list->id)->get();
 
-	//	$array = (array) $messages;
-
 		foreach ($messages as $value) {
- 		  // echo $value->name.' : ';
- 		  // echo '<br/>';
- 		  // echo $value->message;
- 		  // echo '<br/>';
- 		  // echo '<br/>';
-
 			$array[]=$value;
-
 		}
 
-		//echo $array[0]->name;
+		return $this->container->view->render($response, 'message.twig', array('array' => $array, 'url' => $list->sharing_url));
 
+	}
 
+	public function sendMessage($request, $response, $args){
 
+		$list = Lists::where('sharing_url','like',$request->getAttribute('route')->getArgument('id'))->first();
+		//$messages = Message::where('list_id','=',$list->id)->get();
 
+		//foreach ($messages as $value) {
+		//	$array[]=$value;
+		//}
 
-		return $this->container->view->render($response, 'message.twig', array('array' => $array));
+		$send = new Message;
+		$send->name = $request->getParam('name');
+		$send->message = $request->getParam('message');
+		$send->list_id = $list->id;
+		$send->save();
+
+		$messages = Message::where('list_id','=',$list->id)->get();
+		foreach ($messages as $value) {
+			$array[]=$value;
+		}
+
+		return $this->container->view->render($response, 'message.twig', array('array' => $array, 'url' => $list->sharing_url));
 
 	}
 

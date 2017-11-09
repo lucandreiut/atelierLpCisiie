@@ -22,5 +22,26 @@
                 </div>
             {% endfor %}
         </div>
+
+        <form class="form-create-list" action="{{path_for('send_message', {id: url})}}" method="POST" id="addMessage">
+            <div class="form-content">
+                <div class="input">
+                    <label for="Name">Nom : </label><input id="name" type="text" name="name" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input">
+                    <label for="Message">Message : </label><textarea form="addMessage" id="message" class="description" type="text" name="message" placeholder="Votre message" required></textarea>
+                </div>           
+                <div class="input">
+                    <input class="add-list-button" type="submit" value="Envoyer">
+                </div>
+            </div>
+        </form>
+
+
     </div>
+
+
+
+
 {% endblock %}
