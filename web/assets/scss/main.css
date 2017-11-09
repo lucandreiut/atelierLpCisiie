@@ -257,7 +257,7 @@ tr {
     transform: translateY(2px);
     box-shadow: 0 2px grey; }
 
-.btn-flat, .itemsListContainer .itemsList .item .itemInformation .itemDetails {
+.btn-flat {
   line-height: 3;
   font-size: 120%;
   border-radius: 0;
@@ -269,13 +269,13 @@ tr {
   background: #ecf0f1;
   box-shadow: 0 4px none;
   border: none; }
-  .btn-flat:hover, .itemsListContainer .itemsList .item .itemInformation .itemDetails:hover {
+  .btn-flat:hover {
     background-color: #cfd9db; }
-  .btn-flat:active, .itemsListContainer .itemsList .item .itemInformation .itemDetails:active {
+  .btn-flat:active {
     background: #b1c2c6;
     transform: translateY(2px);
     box-shadow: 0 2px none; }
-  .btn-flat:active, .itemsListContainer .itemsList .item .itemInformation .itemDetails:active {
+  .btn-flat:active {
     transform: none;
     box-shadow: none; }
 
@@ -617,7 +617,7 @@ tr {
     transform: translateY(2px);
     box-shadow: 0 2px grey; }
 
-.btn-flat-blue, .itemsListContainer .itemsList .item .itemInformation .itemUrl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label {
+.btn-flat-blue, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label {
   line-height: 3;
   font-size: 120%;
   border-radius: 0;
@@ -629,13 +629,13 @@ tr {
   background: #3498db;
   box-shadow: 0 4px none;
   border: none; }
-  .btn-flat-blue:hover, .itemsListContainer .itemsList .item .itemInformation .itemUrl:hover, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:hover {
+  .btn-flat-blue:hover, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:hover {
     background-color: #217dbb; }
-  .btn-flat-blue:active, .itemsListContainer .itemsList .item .itemInformation .itemUrl:active, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:active {
+  .btn-flat-blue:active, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:active {
     background: #196090;
     transform: translateY(2px);
     box-shadow: 0 2px none; }
-  .btn-flat-blue:active, .itemsListContainer .itemsList .item .itemInformation .itemUrl:active, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:active {
+  .btn-flat-blue:active, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label:active {
     transform: none;
     box-shadow: none; }
 
@@ -831,7 +831,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
+.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -840,7 +840,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-blue, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemUrl {
+.link-blue, .itemsListContainer .itemsList .item .itemInformation .itemUrl, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemUrl {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -1283,6 +1283,10 @@ a {
       padding-left: 10px; }
       .itemsListContainer .itemsList .item .itemInformation .itemTitle {
         margin: 0; }
+      .itemsListContainer .itemsList .item .itemInformation .itemUrl {
+        border-radius: 0; }
+      .itemsListContainer .itemsList .item .itemInformation .itemDetails {
+        border-radius: 0; }
     .itemsListContainer .itemsList .item .itemPrice {
       display: flex;
       flex-direction: column;

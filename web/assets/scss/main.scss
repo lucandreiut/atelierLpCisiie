@@ -353,11 +353,13 @@
                     margin:0;
                 }
                 .itemUrl{
-                    @extend .btn-flat-blue;
+                    @extend .link-blue;
+                    border-radius: 0;
                 }
 
                 .itemDetails{
-                    @extend .btn-flat;
+                    @extend .link-green;
+                    border-radius: 0;
                 }
 
             }
