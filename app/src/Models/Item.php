@@ -12,8 +12,8 @@ class Item extends Model
 	protected $primarykey = 'id';
 	protected $table = 'item';
 	public $timestamps = false;
-
-	public function list(){
+	
+	public function lists(){
 		return $this->belongsTo('\App\Models\Lists', 'lists_id');
 	}
 

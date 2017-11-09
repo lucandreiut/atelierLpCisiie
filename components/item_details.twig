@@ -1,0 +1,68 @@
+{% extends 'templates/base_layout.twig' %}
+
+	{% block title %}
+		{{ parent() }} Détails de {{item.title}}
+	{% endblock %}
+
+
+	{% block custom_assets %}
+		{{parent()}}
+		<script type="text/javascript">
+			$(document).ready(e => {
+				$('.smallImage').click(function(e){
+					let smallImageSrc = $(this).attr('src');
+					let bigImageSrc = $('.bigImage').attr('src');
+					$('.bigImage').attr('src', smallImageSrc);
+					$(this).attr('src', bigImageSrc);
+				});
+			});
+		</script>
+	{% endblock %}
+
+
+	{% block content %}
+		<div class="itemDetailsContainer">
+			<div class="itemDetailsHeader">
+				<div class="itemImages">
+					<div class="itemBigImage">
+						<div>
+							{% if item.images|length >= 1 %}
+							<img src="{{ upload_path ~ (item.images|first).url }}" class="bigImage" />
+							{% else %}
+							<img src="{{ upload_path ~ 'gift.png' }}"/>
+							{% endif %}
+						</div>
+					</div>
+					{% if item.images|length > 1 %}
+					<div class="itemSmallImages">
+						<div class="smallImagesRow">
+						{% for image in item.images %}
+							{% if loop.index != 1 %}
+								{% if (loop.index - 1) is divisible by (2) and loop.index != 1 %}
+								</div>
+								<div class="smallImagesRow">
+								{% endif %}
+								<div>
+									<img src="{{ upload_path ~ image.url }}" class="smallImage">
+								</div>
+							{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+					{% endif %}
+				</div>
+				<div class="itemInformation"><h2 class="itemTitle">{{item.title}}</h2>
+					<p class="itemDescription">{{item.description}}</p>
+					<div class="itemPrice">
+						<span class="itemPriceDegits">{{item.price}}€</span>
+					</div>
+					{% if item.url %}
+					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>
+					{% endif %}
+					{% if not item.is_reserved %}
+					<a href="#" class="itemReservationRequest">Réserver</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	{% endblock %}
