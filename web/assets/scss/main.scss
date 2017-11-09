@@ -147,6 +147,8 @@
             width:25%;
             word-wrap: break-word;
         }
+    }
+}
 
 .header {
     @extend .row;
@@ -306,6 +308,4 @@
             margin-left: 10px;
         }
     }
-}
-}
 }
