@@ -23,64 +23,28 @@
 	</head>
 
 	<body>
-		<header>
-			<div class="header">
-
-				{% if not session.isConnected %}
-					<a class="enregistrer" href="{{ path_for('lists') }}">Sign in</a>
-
-				{% else %}
-   				 	<a class="enregistrer" href="{{ path_for('lists') }}">Sign out</a>
-   				 	<div class="welcome">
-   				 		<span>Welcome</span> {{ session.isConnected.full_name }}
-   				 	</div>
-				{% endif %}
-
-
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4 ">
-
-							 <form action="{{ path_for('lists') }}" method="get" role="search">
-
-					            <div class="input-group custom-search-form">
-					              <input type="text" class="form-control" placeholder=" ">
-					              <span class="input-group-btn">
-					              <button class="btn btn-primary" type="submit">
-					              <span class="glyphicon glyphicon-search"></span>
-					             </button>
-					             </span>
-					            </div>
-				        	 </form>
-				        </div>
-					</div>
-				</div>
-			</div>	
-			<div class="button">
-				<ul>				
-
-					<li><a href="{{ path_for('lists') }}">Listes</a></li>
-					<li><a href="{{ path_for('lists') }}">Listes</a></li>
-					<li><a href="{{ path_for('lists') }}">listes</a></li>
-
-				
+		<header class="header">
+			<div class="headerLogo">
+				<span class="websiteName">Mecado.net</span>
+			</div>
+			
+			<div class="headerNavigation">
+				<ul>
+					{% if auth_check %}
+						<li><a href="{{ path_for('lists') }}">Mes listes</a></li>
+						<li><a href="{{ path_for('logout') }}">Se déconnecter</a></li>
+					{% else %}
+						<li><a href="{{ path_for('inscription') }}">S'inscrire</a></li>
+						<li><a href="{{ path_for('login') }}">Se connecter</a></li>
+					{% endif %}
 				</ul>
 			</div>
 		</header>
 
 			{% block content %}
-
 			{% endblock %}
 
 		<footer>
-			<div>
-
-				<a class="lien-footer" href="{{ path_for('lists') }}"> Listes -</a>  
-				<a class="lien-footer" href="{{ path_for('lists') }}"> Listes -</a> 
-				<a class="lien-footer" href="{{ path_for('lists') }}">Contact us</a> 
-
-				<p>© 2017 Mecado.net</p>
-			</div>
 		</footer>
 	</body>
 </html>

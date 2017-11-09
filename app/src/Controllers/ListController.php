@@ -7,9 +7,6 @@ use \App\Models\Users as Users;
 use Respect\Validation\Validator as v;
 use Cartalyst\Sentinel\Native\Facades\Sentinel as Sentinel;
 
-/**
-* 
-*/
 class ListController extends BaseController
 {
 	public function lists($request, $response, $args)
@@ -26,7 +23,7 @@ class ListController extends BaseController
 
 		if(! $user = Sentinel::check())
 			return $response->withRedirect('/login');
-
+	
 		$lists = Users::find($user['id'])->lists;
 
 		$data = [
@@ -51,7 +48,7 @@ class ListController extends BaseController
 	public function add($request, $response, $args)
 	{
 		if(! $user = Sentinel::check())
-			return $response->widthRedirect('/login');
+			return $response->withRedirect('/login');
 
 		$data = [];
 
@@ -74,7 +71,6 @@ class ListController extends BaseController
 
 			if(sizeof($errors) == 0)
 			{
-				// Les infos sont valide, on ajoute ça à la BDD
 				$list = new Lists;
 
 				$list->title = $params['title'];
@@ -105,18 +101,17 @@ class ListController extends BaseController
 		if(! $user = Sentinel::check())
 			return $response->widthRedirect('/login');
 
-		// On vérifie que la liste existe
-
 		$id = $request->getParams()['target'];
 		
 		if($target = Lists::find($id))
 		{
-			// On vérifie que la liste à supprimer lui appartient bien
 			if($target->users_id == $user['id'])
 				$target->delete();
 			else
-			return $response->widthRedirect('/lists');
+				return $response->widthRedirect('/lists');
 		}
+		else
+			return $response->widthRedirect('/lists');
 	}
 
 }

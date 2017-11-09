@@ -1,3 +1,205 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 5px; }
+
+h1 {
+  font-size: 300%; }
+
+h2 {
+  font-size: 260%; }
+
+h3 {
+  font-size: 220%; }
+
+h4 {
+  font-size: 180%; }
+
+h5 {
+  font-size: 140%; }
+
+h6 {
+  font-size: 100%; }
+
+small, .subtitle {
+  font-size: 75%;
+  color: #2c3e50; }
+
+p {
+  margin-bottom: 10px; }
+
+mark {
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding: 2px; }
+
+del {
+  text-decoration: line-through #34495e 2px; }
+
+ins, u {
+  border-bottom: 2px solid #34495e; }
+
+strong {
+  font-weight: bolder;
+  font-size: 110%; }
+
+em {
+  font-style: italic;
+  color: #2c3e50; }
+
+abbr:hover {
+  color: steelblue;
+  transition: 600ms; }
+
+.left-align {
+  text-align: left; }
+
+.right-align {
+  text-align: right; }
+
+.center {
+  text-align: center; }
+
+.justify {
+  text-align: justify; }
+
+.to-uppercase {
+  text-transform: uppercase; }
+
+.to-lowercase {
+  text-transform: lowercase; }
+
+ul {
+  list-style: circle; }
+
+li {
+  margin-left: 20px; }
+
+.square-list {
+  list-style: square; }
+
+.simple-list {
+  list-style: none; }
+
+blockquote {
+  margin: 5px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-left: 2px solid #b1c2c6;
+  color: #2c3e50; }
+
+code {
+  font-family: monospace;
+  margin: 5px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding: 10px;
+  background-color: #10161c;
+  color: #29b765;
+  display: block;
+  white-space: pre; }
+
+pre {
+  padding: 5px;
+  margin: 5px; }
+
+kbd {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border: 1px solid #a3b6bb;
+  border-bottom: 3px solid #a3b6bb;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 4px;
+  margin: 2px; }
+
+table {
+  border-collapse: collapse;
+  margin: 5px;
+  color: #2c3e50; }
+
+caption {
+  font-weight: bolder;
+  border: 2px solid #10161c;
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+  padding: 5px;
+  background: #34495e;
+  color: #ecf0f1; }
+
+th {
+  border: 2px solid #10161c;
+  padding: 5px; }
+
+td {
+  border: 2px solid #10161c;
+  padding: 5px; }
+
+.alternate-line {
+  background-color: #ecf0f1; }
+
+.full-border {
+  border: 6px groove #10161c;
+  font-weight: bolder; }
+  .full-border caption {
+    border: 6px groove #10161c; }
+  .full-border th {
+    border: 6px groove #10161c; }
+  .full-border td {
+    border: 6px groove #10161c; }
+
+tr {
+  background-color: white; }
+
+.line-hover {
+  transition: 500ms; }
+  .line-hover:hover {
+    background-color: #34495e;
+    color: #ecf0f1; }
+
 .btn {
   line-height: 3;
   font-size: 120%;
@@ -622,7 +824,7 @@
 .container {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .global_message div .header, .global_message div .header .headerNavigation ul {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -645,7 +847,7 @@
 .offset-3, .form-create-list .form-content, .form-add-list input {
   margin-left: 25%; }
 
-.col-4 {
+.col-4, .global_message div .header .headerLogo {
   flex-basis: 33.3333333333%; }
 
 .offset-4 {
@@ -669,7 +871,7 @@
 .offset-7 {
   margin-left: 58.3333333333%; }
 
-.col-8, .error-alert div {
+.col-8, .error-alert div, .global_message div .header .headerNavigation {
   flex-basis: 66.6666666667%; }
 
 .offset-8 {
@@ -706,13 +908,13 @@
   .col-md-1 {
     flex-basis: 8.3333333333%; }
 
-  .offset-md-1, .list-of-lists div a {
+  .offset-md-1, .error-alert div, .global_message div .list-of-lists div a {
     margin-left: 8.3333333333%; }
 
   .col-md-2 {
     flex-basis: 16.6666666667%; }
 
-  .offset-md-2, .form-create-list .form-content, .form-add-list input {
+  .offset-md-2, .global_message div .form-create-list .form-content, .global_message div .form-add-list input {
     margin-left: 16.6666666667%; }
 
   .col-md-3 {
@@ -745,19 +947,19 @@
   .offset-md-7 {
     margin-left: 58.3333333333%; }
 
-  .col-md-8, .form-create-list .form-content, .form-add-list input {
+  .col-md-8, .global_message div .form-create-list .form-content, .global_message div .form-add-list input {
     flex-basis: 66.6666666667%; }
 
   .offset-md-8 {
     margin-left: 66.6666666667%; }
 
-  .col-md-9, .list-of-lists div a {
+  .col-md-9, .global_message div .list-of-lists div a {
     flex-basis: 75%; }
 
   .offset-md-9 {
     margin-left: 75%; }
 
-  .col-md-10 {
+  .col-md-10, .error-alert div {
     flex-basis: 83.3333333333%; }
 
   .offset-md-10 {
@@ -769,19 +971,19 @@
   .offset-md-11 {
     margin-left: 91.6666666667%; }
 
-  .col-md-12, .list-of-lists div {
+  .col-md-12, .global_message div .header .headerNavigation, .global_message div .list-of-lists div {
     flex-basis: 100%; }
 
   .offset-md-12 {
     margin-left: 100%; }
 
-  .offset-md-0, .list-of-lists div {
+  .offset-md-0, .global_message div .list-of-lists div {
     margin-left: 0; } }
 @media screen and (max-width: 480px) {
   .col-sm-1 {
     flex-basis: 8.3333333333%; }
 
-  .offset-sm-1, .form-add-list input {
+  .offset-sm-1, .global_message div .list-of-lists div a, .global_message div .form-add-list input {
     margin-left: 8.3333333333%; }
 
   .col-sm-2 {
@@ -820,19 +1022,19 @@
   .offset-sm-7 {
     margin-left: 58.3333333333%; }
 
-  .col-sm-8 {
+  .col-sm-8, .global_message div .list-of-lists div a {
     flex-basis: 66.6666666667%; }
 
   .offset-sm-8 {
     margin-left: 66.6666666667%; }
 
-  .col-sm-9, .list-of-lists div a {
+  .col-sm-9 {
     flex-basis: 75%; }
 
   .offset-sm-9 {
     margin-left: 75%; }
 
-  .col-sm-10, .form-add-list input {
+  .col-sm-10, .global_message div .form-add-list input {
     flex-basis: 83.3333333333%; }
 
   .offset-sm-10 {
@@ -844,20 +1046,21 @@
   .offset-sm-11 {
     margin-left: 91.6666666667%; }
 
-  .col-sm-12, .form-create-list .form-content, .list-of-lists div {
+  .col-sm-12, .error-alert div, .global_message div .header .headerNavigation, .global_message div .form-create-list .form-content, .global_message div .list-of-lists div {
     flex-basis: 100%; }
 
   .offset-sm-12 {
     margin-left: 100%; }
 
-  .offset-sm-0, .form-create-list .form-content, .list-of-lists div, .list-of-lists div a {
+  .offset-sm-0, .error-alert div, .global_message div .form-create-list .form-content, .global_message div .list-of-lists div {
     margin-left: 0; } }
 .error-alert div {
   line-height: 1;
   text-align: left;
   font-size: 100%; }
   .error-alert div p {
-    padding-left: 10px; }
+    padding-left: 10px;
+    padding-top: 10px; }
 
 .form-create-list {
   color: #2c3e50;
@@ -903,21 +1106,71 @@
     .list-of-lists div a:hover {
       background: #cfd9db; }
   .list-of-lists div form input[type="submit"] {
+    font-weight: bolder;
     height: 72px; }
 
 .global_message div p {
   width: 25%;
   word-wrap: break-word; }
-
+.global_message div .header {
+  color: #ecf0f1;
+  background: #34495e;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 20px; }
+  .global_message div .header .headerLogo {
+    font-size: 220%;
+    font-weight: bolder;
+    text-align: center; }
+  .global_message div .header .headerNavigation {
+    height: 100%; }
+    .global_message div .header .headerNavigation ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      height: 100%;
+      list-style: none; }
+      .global_message div .header .headerNavigation ul li {
+        height: 100%;
+        margin: 0; }
+        .global_message div .header .headerNavigation ul li a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          color: #ecf0f1;
+          font-size: 140%;
+          font-weight: bolder;
+          text-decoration: none;
+          padding: 0 20px; }
+      .global_message div .header .headerNavigation ul a:hover {
+        background: #46637f; }
 @media screen and (max-width: 1080px) {
-  .list-of-lists div a {
+  .global_message div .header .headerLogo {
+    display: none; }
+  .global_message div .header .headerNavigation ul {
+    justify-content: space-around; }
+  .global_message div .list-of-lists div a {
     font-size: 100%; }
-    .list-of-lists div a span {
+    .global_message div .list-of-lists div a span {
       font-size: 80%; } }
 @media screen and (max-width: 480px) {
-  .list-of-lists div a {
+  .global_message div .header {
+    height: 100%; }
+    .global_message div .header .headerLogo {
+      display: none; }
+    .global_message div .header .headerNavigation {
+      width: 100%; }
+      .global_message div .header .headerNavigation ul {
+        flex-direction: column;
+        width: 100%; }
+        .global_message div .header .headerNavigation ul li {
+          width: 100%;
+          height: 60px; }
+  .global_message div .list-of-lists div a {
     font-size: 100%; }
-    .list-of-lists div a span {
-      font-size: 80%; } }
+    .global_message div .list-of-lists div a span {
+      font-size: 80%; }
+  .global_message div .error-alert div {
+    margin-left: 10px; } }
 
 /*# sourceMappingURL=main.css.map */
