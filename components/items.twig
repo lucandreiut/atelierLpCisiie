@@ -39,7 +39,7 @@
 						<a class="itemUrl" target="_blank" href="{{item.url}}">Page du cadeau</a>
 
 						{% endif %}
-							<a href="{{path_for('item_details', {id: item.id})}}" class="itemDetails">Détails</a >
+							<a href="{{path_for('item_details', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemDetails">Détails</a>
 					</div>
 					<div class="itemPrice">
 						<span class="itemPriceDegits">{{item.price}}€</span>
