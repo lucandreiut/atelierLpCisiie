@@ -9,7 +9,7 @@ class AuthController extends BaseController
 {
     public function checkAuth() 
     {
-        return Sentinel::check() ? true : false;
+        return Sentinel::check();
     }
 
     public function index($request, $response, $args)

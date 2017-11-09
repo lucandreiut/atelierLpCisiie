@@ -1265,7 +1265,7 @@ a {
   .itemsListContainer .addNewItem .addNewItemForm .control a {
     border-radius: 0; }
 .itemsListContainer .itemsList {
-  width: 100%;
+  width: 60%;
   margin: auto; }
   .itemsListContainer .itemsList .item {
     margin-left: 0;

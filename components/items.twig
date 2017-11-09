@@ -11,13 +11,15 @@
 
 	{% block content %}
 		<div class="itemsListContainer">
-			<div class="addNewItem">
-				<div class="addNewItemForm">
-					<div class="control">
-				   		<a title="Ajouter nouveau" type="submit" href="{{path_for('add_item_page', {id : url})}}">+</a>
+			{% if auth_check is not null and auth_check.id == list.user.id and date(list.limit_date) > date() %}
+				<div class="addNewItem">
+					<div class="addNewItemForm">
+						<div class="control">
+					   		<a title="Ajouter nouveau" type="submit" href="{{path_for('add_item_page', {id : list.sharing_url})}}">Ajouter nouveau</a>
+						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+			{% endif %}
 			<ul class="itemsList">
 			{% for item in items %}
 				<li class="item">
@@ -38,10 +40,14 @@
 					<div class="itemPrice">
 						<span class="itemPriceDegits">{{item.price}}€</span>
 					</div>
+					{% if auth_check is not null and auth_check.id == item.lists_id and date(list.limit_date) > date() %}
 					<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">
 						<button type="submit" class="itemDeleteButton">X</button>
 					</form>
+					{% endif %}
 				</li>
+			{% else %}
+				<h2>La liste ne contient aucun cadeau</h2>
 			{% endfor %}
 			</ul>
 		</div>
