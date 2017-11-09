@@ -84,8 +84,21 @@ $container['ListController'] = function($c){
   return new \App\Controllers\ListController($c);
 };
 
+$container['ReservationController'] = function($c){
+  return new \App\Controllers\ReservationController($c);
+};
+
+$container['ContributorController'] = function($c){
+  return new \App\Controllers\ContributorController($c);
+};
+
 $container['ItemController'] = function($c){
   return new \App\Controllers\ItemController($c);
+};
+
+
+$container['MessageController'] = function($c){
+  return new \App\Controllers\MessageController($c);
 };
 
 $container['AuthController'] = function($c){
@@ -98,6 +111,18 @@ $container['AuthController'] = function($c){
 
 $container['Model\User'] = function ($c) {
     return new App\Models\User;
+};
+
+$container['Model\Item'] = function ($c) {
+    return new App\Models\Item;
+};
+
+$container['Model\Contributor'] = function ($c) {
+    return new App\Models\Contributor;
+};
+
+$container['Model\Message'] = function ($c) {
+    return new App\Models\Message;
 };
 
 # -----------------------------------------------------------------------------

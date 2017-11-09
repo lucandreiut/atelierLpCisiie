@@ -60,7 +60,7 @@
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>
 					{% endif %}
 					{% if not item.is_reserved %}
-					<a href="#" class="itemReservationRequest">Réserver</a>
+					<a href="{{path_for('reservation', {id: item.id})}}" class="itemReservationRequest">Réserver</a>
 					{% endif %}
 				</div>
 			</div>

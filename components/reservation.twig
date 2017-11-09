@@ -1,0 +1,35 @@
+{% extends 'templates/base_layout.twig' %}
+
+{% block title %}
+	{{ parent() }} Réserver un cadeau
+{% endblock %}
+
+
+{% block custom_assets %}
+{% endblock %}
+
+
+	{% block content %}
+		<p class="title">
+		{{item.title}} <br/>
+		{{item.price}}€
+		</p>
+		<form class="form-create-list" action="{{path_for('reserve_validation', {id: item.id})}}" method="POST" id="addList">
+            <div class="form-content">
+                <div class="input">
+                    <label for="nom">Nom : </label><input id="nom" type="text" name="userName" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input">
+                    <label for="message">Message : </label><textarea form="addList" id="message" class="message" type="text" name="userMsg" placeholder="Votre message" required></textarea>
+                </div>
+                <div class="input">
+                    <input class="add-list-button" type="submit" value="Réserver le cadeau">
+                </div>
+		 		 <input type="hidden" value="{{item.id}}" name="item_id" />
+            </div>
+        </form>
+
+	{% endblock %}
+
+

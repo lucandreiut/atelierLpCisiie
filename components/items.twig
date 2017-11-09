@@ -33,7 +33,10 @@
 					<div class="itemInformation">
 						<h2 class="itemTitle">{{item.title}}</h2>
 						{% if item.url %}
+
+						<!--<a href="{{item.id}}" class="itemUrl">Page du cadeau</a>-->
 						<a class="itemUrl" target="_blank" href="{{item.url}}">Page du cadeau</a>
+
 						{% endif %}
 							<a href="{{path_for('item_details', {id: item.id})}}" class="itemDetails">Détails</a >
 					</div>
@@ -50,5 +53,10 @@
 				<h2>La liste ne contient aucun cadeau</h2>
 			{% endfor %}
 			</ul>
+
+			<form action="{{path_for('message', {id : url})}}" method="get">
+			    <button type="submit">Discuter</button>
+			</form>
+			
 		</div>
 	{% endblock %}

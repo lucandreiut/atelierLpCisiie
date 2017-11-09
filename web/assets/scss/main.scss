@@ -135,6 +135,22 @@
     }
 }
 
+
+.global_message {
+     @extend .row;
+
+    & div {
+        @extend .row;
+        @extend .col-10;
+        @extend .offset-1;
+
+        & p {
+            width:25%;
+            word-wrap: break-word;
+        }
+    }
+}
+
 .header {
     @extend .row;
     color: $light_text;
@@ -288,7 +304,6 @@
             @extend .offset-sm-1;
         }
     }
-
     .error-alert {
         & div {
             margin-left: 10px;

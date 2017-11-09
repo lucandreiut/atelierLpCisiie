@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+
     "hash": "f30032d4151d7861f6da1c366bfe09d3",
     "content-hash": "c230605070585fddc94124990ac9ea1d",
     "packages": [
