@@ -28,6 +28,13 @@ class ItemController extends BaseController
 		if(empty($item)){
 			die('Item not found');
 		}
+		$list = Lists::where('sharing_url', 'LIKE', $request->getAttribute('route')->getArgument('url'))->first();
+		if(empty($list)){
+			die('Item not found');
+		}
+		if($item->lists->id != $list->id){
+			die('Non autorisé');
+		}
 		return $this->get('view')->render($response, 'item_details.twig', array('item' => $item));
 	}
 
