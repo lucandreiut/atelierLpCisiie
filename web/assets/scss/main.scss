@@ -315,7 +315,7 @@
         }
     }
     .itemsList{
-        @include container(100%);
+        @include container(60%);
         margin: auto;
         .item{
             margin-left: 0;
