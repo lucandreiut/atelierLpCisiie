@@ -17,7 +17,7 @@ class ItemController extends BaseController
 			die('empty');
 		}
 		$items = $list->items;
-		return $this->container->view->render($response, 'items.twig', array('items' => $items, 'url' => $list->sharing_url));
+		return $this->container->view->render($response, 'items.twig', array('items' => $items, 'list' => $list));
 	}
 
 	/*
@@ -93,7 +93,8 @@ class ItemController extends BaseController
 								}
 								$item->images()->createMany($images);
 							}
-							return $this->container->view->render($response, 'items.twig', array('items' => $list->items));
+							//return $this->container->view->render($response, 'items.twig', array('items' => $list->items));
+							return $response->withRedirect($this->get('router')->pathFor('get_items_by_list', array('id' => $list->sharing_url)));
 						}
 					}
 				}
