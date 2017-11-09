@@ -38,13 +38,16 @@ class AuthController extends BaseController
             if(! v::length(1, 50)->validate(params['password']))
                 array_push($errors, "Le mot de passe entré est trop long !");
 
+            if(Sentinel::findByCredentials(["email" => $params["email"]]))
+                array_push($errors, "L'adresse email entrée est déjà utilisée !");
+
             $data = [
                 "errors" => $errors
             ];
 
             if(sizeof($errors) > 0)
                 return $this->container->view->render($response, 'inscription.twig', $data); 
-            
+
             $user = Sentinel::registerAndActivate([
                 "name" => $params["name"], 
                 "email" => $params["email"], 
