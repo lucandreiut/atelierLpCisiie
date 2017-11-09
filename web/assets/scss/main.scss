@@ -125,6 +125,22 @@
     }
 }
 
+.global_message {
+     @extend .row;
+
+    & div {
+        @extend .row;
+        @extend .col-10;
+        @extend .offset-1;
+
+        & p {
+            width:25%;
+            word-wrap: break-word;
+        }
+
+    }
+}
+
 @media screen and (max-width: $breakpoint-md) {
     .form-create-list {
         & .form-content {
@@ -191,4 +207,5 @@
             @extend .offset-sm-1;
         }
     }
+
 }

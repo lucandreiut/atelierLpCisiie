@@ -26,17 +26,26 @@ class MessageController extends BaseController
 		$list = Lists::where('sharing_url','like',$request->getAttribute('route')->getArgument('id'))->first();
 		$messages = Message::where('list_id','=',$list->id)->get();
 
-		$array = (array) $messages;
+	//	$array = (array) $messages;
 
 		foreach ($messages as $value) {
- 		   echo $value->name.' : ';
- 		   echo '<br/>';
- 		   echo $value->message;
- 		   echo '<br/>';
- 		   echo '<br/>';
+ 		  // echo $value->name.' : ';
+ 		  // echo '<br/>';
+ 		  // echo $value->message;
+ 		  // echo '<br/>';
+ 		  // echo '<br/>';
+
+			$array[]=$value;
+
 		}
 
-		return $this->container->view->render($response, 'message.twig', $array);
+		//echo $array[0]->name;
+
+
+
+
+
+		return $this->container->view->render($response, 'message.twig', array('array' => $array));
 
 	}
 

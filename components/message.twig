@@ -12,13 +12,13 @@
 {% block content %}
     <div class="container">
         <p class="title">Discussion</p>
-        <div>
+        <div class="global_message">
             {% for m in array %}
                 <div>
-                    <p>{{ m.name }} : <br/>
-                        {{ m.message }} <br/>
+                    <p> <b> <u> {{ m.name }}</b></u> <i>le {{ m.date }}</i> : 
                         <br/>
-                    </p>
+                        {{ m.message }} </p>
+                        <br/>
                 </div>
             {% endfor %}
         </div>

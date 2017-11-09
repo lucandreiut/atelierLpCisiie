@@ -34,6 +34,10 @@
 			<form action="{{path_for('add_item_page', {id : url})}}" method="get">
 			    <button type="submit">Ajouter nouveau</button>
 			</form>
+
+			<form action="{{path_for('message', {id : url})}}" method="get">
+			    <button type="submit">Discuter</button>
+			</form>
 			
 		</div>
 	{% endblock %}
