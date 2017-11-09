@@ -13,13 +13,19 @@
         @extend .alert-danger;
         @extend .col-8;
         @extend .offset-2;
-        //background: red;
+        
+        @extend .col-md-10;
+        @extend .offset-md-1;
+
+        @extend .col-sm-12;
+        @extend .offset-sm-0;
 
         line-height: 1;
         text-align: left;
         font-size: 100%;
         & p {
             padding-left: 10px;
+            padding-top: 10px;
         }
     }
 }
@@ -121,6 +127,7 @@
         & form {
             & input[type="submit"] {
                 @extend .btn-flat-red;  
+                font-weight: bolder;
                 height: 72px;
             }
             
@@ -128,7 +135,73 @@
     }
 }
 
+.header {
+    @extend .row;
+    color: $light_text;
+    background: $dark;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    .headerLogo {
+        @extend .col-4;
+        font-size: 220%;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .headerNavigation {
+        @extend .col-8;
+        @extend .col-md-12;
+        @extend .col-sm-12;
+
+        height: 100%;
+
+        ul {
+            @extend .row;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            height: 100%;
+            list-style: none;
+
+            li {
+                height: 100%;
+                margin: 0;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+
+                    color: $light_text;
+                    font-size: 140%;
+                    font-weight: bolder;
+                    text-decoration: none;
+                    padding: 0 20px; 
+                }
+            }
+
+            a:hover {
+                background: lighten($dark, 10);
+            }
+        }
+    }
+}
+
 @media screen and (max-width: $breakpoint-md) {
+    .header {
+        .headerLogo {
+            display: none;
+        }
+
+        .headerNavigation {
+            ul {
+                justify-content: space-around;
+            }
+        }
+    }
+    
     .form-create-list {
         & .form-content {
             @extend .col-md-8;
@@ -163,6 +236,27 @@
 }
 
 @media screen and (max-width: $breakpoint-sm) {
+    .header {
+        height: 100%;
+
+        .headerLogo {
+            display: none;
+        }
+
+        .headerNavigation {
+            width: 100%;
+            ul {
+                flex-direction: column;
+                width: 100%;
+
+                li {
+                    width: 100%;
+                    height: 60px;
+                }
+            }
+        }
+    }
+    
     .form-create-list {
         & .form-content {
             @extend .col-sm-12;
@@ -176,8 +270,8 @@
             @extend .offset-sm-0;
 
             & a {
-                @extend .col-sm-9;
-                @extend .offset-sm-0;
+                @extend .col-sm-8;
+                @extend .offset-sm-1;
 
                 font-size: 100%;
 
@@ -192,6 +286,12 @@
         & input {
             @extend .col-sm-10;
             @extend .offset-sm-1;
+        }
+    }
+
+    .error-alert {
+        & div {
+            margin-left: 10px;
         }
     }
 }

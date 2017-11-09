@@ -43,7 +43,7 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('title');
                 $table->string('description');
-                $table->timestamp('limit_date')->default(Capsule::raw('CURRENT_TIMESTAMP'));
+                $table->date('limit_date');
                 $table->boolean('is_self_target');
                 $table->string('receiver');
                 $table->string('sharing_url');

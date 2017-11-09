@@ -1,0 +1,46 @@
+{% extends 'templates/base_layout.twig' %}
+
+{% block title %}
+	{{ parent() }} Listes
+{% endblock %}
+
+
+{% block custom_assets %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <p class="title">Inscription</p>
+
+        <div class="error-alert">
+            <div>
+                {% for e in errors %}
+                    <p>{{ e }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <form class="form-create-list" action="" method="post">
+            <div class="form-content">
+                <div class="input">
+                    <label for="name">Nom : </label>
+                    <input id="name" type="text" name="name" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input">
+                    <label for="email">Email : </label>
+                    <input id="email" type="text" name="email" placeholder="votre.mail@email.fr" required>
+                </div>
+
+                <div class="input">
+                    <label>Mot de passe : </label>
+                    <input id="password" type="password" name="password" required>
+                </div>
+
+                <div class="input">
+                    <input type="submit" class="add-list-button" value="S'inscrire">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

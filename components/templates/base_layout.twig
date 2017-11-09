@@ -3,11 +3,6 @@
 
 	<head>
 
-		<!--<link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="/Assets/css/styles.css">
-		<script type="text/javascript" src="/Assets/js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="/Assets/js/bootstrap.min.js"></script>-->
-
 		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/web/assets/scss/main.css">
 
 		<meta charset="UTF-8">
@@ -23,11 +18,25 @@
 	</head>
 
 	<body>
-		<header>
+		<header class="header">
+			<div class="headerLogo">
+				<span class="websiteName">Mecado.net</span>
+			</div>
+			
+			<div class="headerNavigation">
+				<ul>
+					{% if auth_check %}
+						<li><a href="{{ path_for('lists') }}">Mes listes</a></li>
+						<li><a href="{{ path_for('logout') }}">Se déconnecter</a></li>
+					{% else %}
+						<li><a href="{{ path_for('inscription') }}">S'inscrire</a></li>
+						<li><a href="{{ path_for('login') }}">Se connecter</a></li>
+					{% endif %}
+				</ul>
+			</div>
 		</header>
 
 			{% block content %}
-
 			{% endblock %}
 
 		<footer>

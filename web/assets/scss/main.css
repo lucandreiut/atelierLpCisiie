@@ -873,7 +873,7 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .form-add-list, .list-of-lists, .list-of-lists div, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .form-add-list, .list-of-lists, .list-of-lists div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -899,7 +899,7 @@ a {
 .offset-3, .form-create-list .form-content, .form-add-list input, .addItemContainer .addItemForm .addItemFormContent {
   margin-left: 25%; }
 
-.col-4, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton {
+.col-4, .header .headerLogo, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton {
   flex-basis: 33.3333333333%;
   box-sizing: border-box; }
 
@@ -927,7 +927,7 @@ a {
 .offset-7 {
   margin-left: 58.3333333333%; }
 
-.col-8, .error-alert div, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader .itemInformation {
+.col-8, .error-alert div, .header .headerNavigation, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader .itemInformation {
   flex-basis: 66.6666666667%;
   box-sizing: border-box; }
 
@@ -970,7 +970,7 @@ a {
     flex-basis: 8.3333333333%;
     box-sizing: border-box; }
 
-  .offset-md-1, .list-of-lists div a {
+  .offset-md-1, .error-alert div, .list-of-lists div a {
     margin-left: 8.3333333333%; }
 
   .col-md-2 {
@@ -1029,7 +1029,7 @@ a {
   .offset-md-9 {
     margin-left: 75%; }
 
-  .col-md-10 {
+  .col-md-10, .error-alert div {
     flex-basis: 83.3333333333%;
     box-sizing: border-box; }
 
@@ -1043,7 +1043,7 @@ a {
   .offset-md-11 {
     margin-left: 91.6666666667%; }
 
-  .col-md-12, .list-of-lists div {
+  .col-md-12, .header .headerNavigation, .list-of-lists div {
     flex-basis: 100%;
     box-sizing: border-box; }
 
@@ -1057,7 +1057,7 @@ a {
     flex-basis: 8.3333333333%;
     box-sizing: border-box; }
 
-  .offset-sm-1, .form-add-list input {
+  .offset-sm-1, .list-of-lists div a, .form-add-list input {
     margin-left: 8.3333333333%; }
 
   .col-sm-2 {
@@ -1102,14 +1102,14 @@ a {
   .offset-sm-7 {
     margin-left: 58.3333333333%; }
 
-  .col-sm-8 {
+  .col-sm-8, .list-of-lists div a {
     flex-basis: 66.6666666667%;
     box-sizing: border-box; }
 
   .offset-sm-8 {
     margin-left: 66.6666666667%; }
 
-  .col-sm-9, .list-of-lists div a {
+  .col-sm-9 {
     flex-basis: 75%;
     box-sizing: border-box; }
 
@@ -1130,21 +1130,22 @@ a {
   .offset-sm-11 {
     margin-left: 91.6666666667%; }
 
-  .col-sm-12, .form-create-list .form-content, .list-of-lists div {
+  .col-sm-12, .error-alert div, .header .headerNavigation, .form-create-list .form-content, .list-of-lists div {
     flex-basis: 100%;
     box-sizing: border-box; }
 
   .offset-sm-12 {
     margin-left: 100%; }
 
-  .offset-sm-0, .form-create-list .form-content, .list-of-lists div, .list-of-lists div a {
+  .offset-sm-0, .error-alert div, .form-create-list .form-content, .list-of-lists div {
     margin-left: 0; } }
 .error-alert div {
   line-height: 1;
   text-align: left;
   font-size: 100%; }
   .error-alert div p {
-    padding-left: 10px; }
+    padding-left: 10px;
+    padding-top: 10px; }
 
 .form-create-list {
   color: #2c3e50;
@@ -1190,18 +1191,73 @@ a {
     .list-of-lists div a:hover {
       background: #cfd9db; }
   .list-of-lists div form input[type="submit"] {
+    font-weight: bolder;
     height: 72px; }
 
+.header {
+  color: #ecf0f1;
+  background: #34495e;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 20px; }
+  .header .headerLogo {
+    font-size: 220%;
+    font-weight: bolder;
+    text-align: center; }
+  .header .headerNavigation {
+    height: 100%; }
+    .header .headerNavigation ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      height: 100%;
+      list-style: none; }
+      .header .headerNavigation ul li {
+        height: 100%;
+        margin: 0; }
+        .header .headerNavigation ul li a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          color: #ecf0f1;
+          font-size: 140%;
+          font-weight: bolder;
+          text-decoration: none;
+          padding: 0 20px; }
+      .header .headerNavigation ul a:hover {
+        background: #46637f; }
+
 @media screen and (max-width: 1080px) {
+  .header .headerLogo {
+    display: none; }
+  .header .headerNavigation ul {
+    justify-content: space-around; }
+
   .list-of-lists div a {
     font-size: 100%; }
     .list-of-lists div a span {
       font-size: 80%; } }
 @media screen and (max-width: 480px) {
+  .header {
+    height: 100%; }
+    .header .headerLogo {
+      display: none; }
+    .header .headerNavigation {
+      width: 100%; }
+      .header .headerNavigation ul {
+        flex-direction: column;
+        width: 100%; }
+        .header .headerNavigation ul li {
+          width: 100%;
+          height: 60px; }
+
   .list-of-lists div a {
     font-size: 100%; }
     .list-of-lists div a span {
-      font-size: 80%; } }
+      font-size: 80%; }
+
+  .error-alert div {
+    margin-left: 10px; } }
 .itemsListContainer .addNewItem {
   width: 60%;
   margin: auto;
