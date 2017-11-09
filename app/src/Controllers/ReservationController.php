@@ -19,6 +19,7 @@ class ReservationController extends BaseController
 
 	public function reserve($request, $response, $args){
 		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		$list = Lists::find($item->lists_id);
 		$verif = $this->verification($item->id);
 		if($verif){
 			$item->is_reserved = 1;
@@ -27,7 +28,7 @@ class ReservationController extends BaseController
 			$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
 		}
 
-		return $response->withRedirect('/lists');
+		return $response->withRedirect('/lists/'.$list->sharing_url.'/items');
 	}
 
 	public function verification($id){

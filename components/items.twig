@@ -54,7 +54,7 @@
 			{% endfor %}
 			</ul>
 
-			<form action="{{path_for('message', {id : url})}}" method="get">
+			<form action="{{path_for('message', {id : list.sharing_url})}}" method="get">
 			    <button type="submit">Discuter</button>
 			</form>
 			
