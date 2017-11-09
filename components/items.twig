@@ -31,13 +31,9 @@
 					<div class="itemInformation">
 						<h2 class="itemTitle">{{item.title}}</h2>
 						{% if item.url %}
-						<form action="{{item.url}}">
-							<button class="itemUrl">Page du cadeau</button>
-						</form>
+						<a class="itemUrl" target="_blank" href="{{item.url}}">Page du cadeau</a>
 						{% endif %}
-						<form action="{{path_for('item_details', {id: item.id})}}">
-							<button class="itemDetails">Détails</button>
-						</form>
+							<a href="{{path_for('item_details', {id: item.id})}}" class="itemDetails">Détails</a >
 					</div>
 					<div class="itemPrice">
 						<span class="itemPriceDegits">{{item.price}}€</span>
