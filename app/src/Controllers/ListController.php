@@ -59,7 +59,8 @@ class ListController extends BaseController
 			if($params['self_targeted'] === "false" && ! v::alpha('-')->length(1, 255)->validate($params['target']))
 				array_push($errors, "Si vous n'êtes pas le déstinataire de la liste, vous devez saisir un destinataire valide !");
 
-			if(! v::Date('d/m/Y H:i:s')->validate($params['date']))
+			if(! v::Date('d/m/Y H:i:s')->validate($params['date']) 
+			|| strtotime($params['date']) < strtotime( (new \DateTime())->format('d/m/Y H:i:s') ))
 				array_push($errors, "Le format de la date spécifiée n'est pas valide !");
 
 			if(sizeof($errors) == 0)
