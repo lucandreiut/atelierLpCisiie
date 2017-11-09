@@ -19,6 +19,7 @@
 @for $i from 1 through $cols {
     .col-#{$i} {
         flex-basis: (100 / ($cols / $i) ) * 1%;
+        box-sizing: border-box;
     }
 
     .offset-#{$i} {
@@ -33,7 +34,8 @@
 @media screen and (max-width: $breakpoint-md) {
     @for $i from 1 through $cols {
         .col-md-#{$i} {
-            flex-basis: (100 / ($cols / $i) ) * 1%;            
+            flex-basis: (100 / ($cols / $i) ) * 1%;  
+            box-sizing: border-box;          
         }
     
         .offset-md-#{$i} {
@@ -49,7 +51,8 @@
 @media screen and (max-width: $breakpoint-sm) {
     @for $i from 1 through $cols {
         .col-sm-#{$i} {
-            flex-basis: (100 / ($cols / $i) ) * 1%;        
+            flex-basis: (100 / ($cols / $i) ) * 1%;
+            box-sizing: border-box;        
         }
 
         .offset-sm-#{$i} {

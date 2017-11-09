@@ -13,8 +13,8 @@ class Item extends Model
 	protected $table = 'item';
 	public $timestamps = false;
 
-	public function list(){
-		return $this->belongsTo('\App\Models\Lists', 'list_id');
+	public function lists(){
+		return $this->belongsTo('\App\Models\Lists', 'lists_id');
 	}
 
 	public function images(){

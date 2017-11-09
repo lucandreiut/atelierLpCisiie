@@ -1,4 +1,7 @@
+@import 'reset';
+@import 'typo';
 @import '_button.scss';
+@import 'link';
 @import '_alert.scss';
 @import '_grid.scss';
 @import '_variables.scss';
@@ -189,6 +192,237 @@
         & input {
             @extend .col-sm-10;
             @extend .offset-sm-1;
+        }
+    }
+}
+
+
+.itemsListContainer{
+
+    .addNewItem{
+        @include container(60%);
+        margin: auto;
+        padding: 20px 0;
+        .addNewItemForm{
+            @extend .row;
+            .control{
+                @extend .col-4;
+                a{
+                    @extend .link-green;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+    .itemsList{
+        @include container(100%);
+        margin: auto;
+        .item{
+            margin-left: 0;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #DBEDFF;
+            @extend .row;
+            .itemImage{
+                @extend .col-2;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+
+            }
+            .itemInformation{
+                padding-left: 10px;
+                @extend .col-7;
+                .itemTitle{
+                    margin:0;
+                }
+                .itemUrl{
+                    @extend .btn-flat-blue;
+                }
+
+                .itemDetails{
+                    @extend .btn-flat;
+                }
+
+            }
+            .itemPrice{
+                @extend .col-2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .itemPriceDegits{
+                    background-color: white;
+                    align-self: center;
+                    padding: 10px;
+                }
+            }
+
+            .itemDelete{
+                @extend .col-1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .itemDeleteButton{
+                    @extend .btn-flat-red;
+                    align-self: center;
+                }
+            }
+            
+
+
+        }
+
+    }
+
+}
+
+.addItemContainer{
+    @extend .container;
+
+    .addItemForm{
+        @extend .row;
+        color: $dark_text;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        .addItemFormContent{
+            @extend .row;
+            @extend .col-6;
+            @extend .offset-3;
+
+            background: $default;
+            border-radius: 5px;
+            .addItemFormControl{
+                @extend .row;
+                @extend .col-10;
+                @extend .offset-1;
+
+                padding: 10px 0px;
+                font-weight: bolder;
+                
+                display: flex;
+                flex-direction: column;
+                textarea{
+                    height: 100px;
+                    resize: none;
+                }
+                input[type=text]{
+                    height: 30px;
+                    font-size: 1.1em;
+                }
+                input[type=submit]{
+                    @extend .btn-flat-green;
+                }
+                .imageFile{
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                }
+                .uploadImageRealControl{
+                    @extend .row;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+                .uploadImageFakeControl{
+                    @extend .row;
+                    .uploadButton{
+                        @extend .col-4;
+                        label{
+                            @extend .btn-flat-blue;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                        }
+                    }
+                    .uploadesFilenames{
+                        @extend .col-8;
+                        @extend .row;
+                        .uploadesFilename{
+                            @extend .col-12;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.itemDetailsContainer{
+    @include container(60%);
+    margin: auto;
+    padding: 10px;
+    background-color: #DBEDFF;
+
+    .itemDetailsHeader{
+        @extend .row;
+
+        .itemImages{
+            @extend .col-3;
+
+            .itemBigImage{
+                @extend .col-12;
+                div{
+                    margin-bottom: 10px;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .itemSmallImages{
+                @extend .col-3;
+
+                .smallImagesRow{
+                    @extend .row;
+                    div{
+                        @extend .col-6;
+                        padding-right: 5px;
+                        margin-bottom: 5px;
+                        img{
+                            width: 100%;
+                            height:auto;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .itemInformation{
+            @extend .col-8;
+            @extend .offset-1;
+
+            .itemTitle{
+                margin:0;
+                font-size: 1.2em;
+            }
+            .itemDescription{
+                margin-top: 20px;
+            }
+            .itemPrice{
+                @extend .col-2;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-bottom: 15px;
+                .itemPriceDegits{
+                    background-color: white;
+                    align-self: left;
+                    padding: 10px;
+                }
+            }
+            .itemUrl{
+                @extend .link-blue;
+                border-radius: 0;
+            }
+
+            .itemReservationRequest{
+                @extend .link-green;
+                border-radius: 0;
+            }
         }
     }
 }

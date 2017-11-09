@@ -12,54 +12,73 @@
 
 
 	{% block content %}
-		<div class="container">
-			{{errors | json_encode}}
+		<div class="addItemContainer">
 			{% if list is not null %}
 			<h2>Ajout d'un cadeau à la liste {{ list.title }}</h2>
 			{% else %}
 			<h2>Ajout d'un cadeau au groupe {{ group.title }}</h2>
 			{% endif %}
-			<form action="{{(list is not null) ? path_for('add_item_action', {id: list.id}) : null }}" method="post" enctype="multipart/form-data">
-				<label for="title">Titre: </label>
-				<input type="text" name="title" id="title" value="{{old.title? old.title:''}}" />
-				{% if errors.title is not null %}
-				<span class="erreurValidation">{{errors.title}}</span>
-				{% endif %}
-
-				<label for="description">Description: </label>
-				<textarea type="text" name="description" id="description">{{old.description? old.description:''}}</textarea>
-				{% if errors.description is not null %}
-				<span class="erreurValidation">{{errors.description}}</span>
-				{% endif %}
-
-				<label for="price">Prix: </label>
-				<input type="text" name="price" id="price" value="{{old.price? old.price:''}}"/>
-				{% if errors.price is not null %}
-				<span class="erreurValidation">{{errors.price}}</span>
-				{% endif %}
-
-				<label for="url">URL: </label>
-				<input type="text" name="url" id="url" value="{{old.url? old.url:''}}"/>
-				{% if errors.url is not null %}
-				<span class="erreurValidation">{{errors.url}}</span>
-				{% endif %}
-
-				<label for="is_crowdfundable">Mode cagnotte: </label><input type="checkbox" name="is_crowdfundable" id="is_crowdfundable" value="1" {{old.is_crowdfundable? 'checked="true"':''}} />
-
-				<label for="Images">Images de l'item: </label>
-				<div id="images">
-					<div id="inputs">
-						<input type="file" name="images[]" multiple="multiple" />
+			<form class="addItemForm" action="{{(list is not null) ? path_for('add_item_action', {id: list.id}) : null }}" method="post" enctype="multipart/form-data">
+				<div class="addItemFormContent">
+					<div class="addItemFormControl">
+						<label for="title">Titre: </label>
+						<input type="text" name="title" id="title" value="{{old.title? old.title:''}}" />
+						{% if errors.title is not null %}
+						<span class="erreurValidation">{{errors.title}}</span>
+						{% endif %}
 					</div>
-					<input type="button" name="add_image" id="add_image" value="Ajouter une image"/>
-					<input type="button" name="remove_image" id="remove_image" value="Enlever une image"/>
+						
+					<div class="addItemFormControl">
+						<label for="description">Description: </label>
+						<textarea type="text" name="description" id="description">{{old.description? old.description:''}}</textarea>
+						{% if errors.description is not null %}
+						<span class="erreurValidation">{{errors.description}}</span>
+						{% endif %}
+					</div>
+						
+					<div class="addItemFormControl">
+						<label for="price">Prix: </label>
+						<input type="text" name="price" id="price" value="{{old.price? old.price:''}}"/>
+						{% if errors.price is not null %}
+						<span class="erreurValidation">{{errors.price}}</span>
+						{% endif %}
+					</div>
+
+					<div class="addItemFormControl">
+						<label for="url">URL: </label>
+						<input type="text" name="url" id="url" value="{{old.url? old.url:''}}"/>
+						{% if errors.url is not null %}
+						<span class="erreurValidation">{{errors.url}}</span>
+						{% endif %}
+					</div>
+
+					<div class="addItemFormControl">
+						<label for="is_crowdfundable" class="jackpotLabel">Mode cagnotte: <input type="checkbox" name="is_crowdfundable" id="is_crowdfundable" value="1" {{old.is_crowdfundable? 'checked="true"':''}} /></label>
+						
+					</div>
+
+					<div class="addItemFormControl">
+						<div class="uploadImageRealControl">
+							<label>Images du cadeau: </label>
+							<input class="imageFile" type="file" name="images[]" multiple="multiple" id="file" />
+						</div>
+						<div class="uploadImageFakeControl">
+							<div class="uploadButton">
+								<label for="file">Télécharger</label>
+							</div>
+							<div class="uploadesFilenames">
+								
+							</div>
+						</div>
+					</div>
+
+					<input type="hidden" name="lists_id" id="lists_id" value="{{ (list is not null) ? list.id : null }}" />
+					<input type="hidden" name="group_id" id="group_id" value="{{ (group is not null) ? group.id : 'null' }}" />
+
+					<div class="addItemFormControl">
+						<input type="submit" name="submit" value="Ajouter"/>
+					</div>
 				</div>
-				<input type="hidden" name="lists_id" id="lists_id" value="{{ (list is not null) ? list.id : null }}" />
-
-				<input type="hidden" name="group_id" id="group_id" value="{{ (group is not null) ? group.id : 'null' }}" />
-
-				<input type="submit" name="submit" value="Ajouter"/>
 			</form>
-			
 		</div>
 	{% endblock %}
