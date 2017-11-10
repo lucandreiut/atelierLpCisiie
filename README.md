@@ -1,5 +1,12 @@
 # atelierLpCisiie
 
+Ce projet a été réalisé dans le cadre du 1er Atelier de la License Pro. CISIIE. 
+Les auteurs de ce projet sont :
+
+- [Allan DEMARBRE](https://github.com/demarbre1u)
+- [Luc ANDRÉ](https://github.com/lucandreiut)
+- [Mohamed ALHASNE](https://github.com/alhasnecode)
+
 ### Installation via Composer
 - Clonez le dépôt git :
 ```
