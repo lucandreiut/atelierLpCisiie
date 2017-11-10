@@ -11,7 +11,7 @@
     <script src="{{ base_url() }}/web/assets/js/jquery.datetimepicker.full.min.js"></script>
 
     <script>
-        $(function () 
+        $(function ()
         {
             $('#datetimepicker').datetimepicker();
             $.datetimepicker.setLocale('fr');
@@ -29,12 +29,12 @@
                         ],
                         dayOfWeek:
                         [
-                            "Dim.", "Lun", "Mar", "Mer", 
+                            "Dim.", "Lun", "Mar", "Mer",
                             "Jeu", "Ven", "Sam",
                         ]
                     }
                 },
-                    
+
                 timepicker:true,
                 step: 60,
                 format:'d/m/Y H:i'
@@ -65,34 +65,38 @@
                 <div class="input">
                     <label for="description">Description : </label><textarea form="addList" id="description" class="description" type="text" name="description" placeholder="Votre description" required></textarea>
                 </div>
-                
+
                 <div class="input">
                     <span>Êtes-vous le destinataire de la liste ?</span>
                     <span>
                         Oui
                         <input id="yes" type="radio" name="self_targeted" value="true" checked>
                     </span>
-                    
+
                     <span>
                         Non
                         <input id="no" type="radio" name="self_targeted" value="false">
                     </span>
                 </div>
-            
+
                 <div class="input">
                     <label for="target">Sinon, précisez le destinataire : </label>
                     <input id="target" type="text" name="target" placeholder="Nom">
                 </div>
-                
+
                 <div class="input">
                     <label for="datetimepicker">Date et heure d'expiration de la liste : </label>
                     <input id="datetimepicker" type="text" name="date" placeholder="01/01/2001 13:30" required>
                 </div>
-                
+
                 <div class="input">
                     <input class="add-list-button" type="submit" value="Créer la liste">
                 </div>
             </div>
+        </form>
+
+        <form class="backto-list-button" action="/lists">
+            <input type="submit" value="Annuler">
         </form>
 	</div>
 {% endblock %}

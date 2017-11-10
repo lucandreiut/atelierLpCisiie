@@ -34,7 +34,7 @@
     @extend .row;
     color: $dark_text;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 
     & .form-content {
         @extend .row;
@@ -65,6 +65,16 @@
 
 .add-list-button {
     @extend .btn-flat-green;
+}
+
+.backto-list-button {
+    @extend .row;
+
+    input[type=submit] {
+        @extend .btn-flat-red;
+        @extend .col-2;
+        @extend .offset-5;
+    }
 }
 
 .title {
@@ -249,6 +259,13 @@
             @extend .offset-md-2;
         }
     }
+
+    .backto-list-button {
+        input[type=submit] {
+            @extend .col-md-2;
+            @extend .offset-md-5;
+        }
+    }
 }
 
 @media screen and (max-width: $breakpoint-sm) {
@@ -307,6 +324,13 @@
     .error-alert {
         & div {
             margin-left: 10px;
+        }
+    }
+
+    .backto-list-button {
+        input[type=submit] {
+            @extend .col-sm-8;
+            @extend .offset-sm-2;
         }
     }
 }
