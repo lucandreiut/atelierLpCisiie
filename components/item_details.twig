@@ -64,13 +64,13 @@
 					{% endif %}
 				</div>
 				<div class="itemMessages">
-				{% if item.is_reserved or item.current_contribution != 0 %}
+				{% if (item.is_reserved or item.current_contribution != 0) and (not auth_check or (auth_check.id != item.lists.user.id or not item.lists.is_self_target or date(item.lists.limit_date) <= date()) ) %}
 					{{item.is_crowdfundable?'<h3>Contributions</h3>':''}}
 
 						<ul class="itemMessagesList">
 						{% for contributor in item.contributors %}
 							<li class="itemMessageText">
-								{% if date(item.lists.limit_date) <= date() or auth_check is null or (auth_check is not null and item.lists.user.id != auth_check.id and not item.lists.is_self_target) %}
+								{% if date(item.lists.limit_date) <= date() or not auth_check or (item.lists.user.id != auth_check.id or not item.lists.is_self_target) %}
 									<h4>{{item.is_crowdfundable?'Par':'Réservé par'}} {{contributor.name}}</h4>
 								{% endif %}
 								{% if date(item.lists.limit_date) <= date() %}

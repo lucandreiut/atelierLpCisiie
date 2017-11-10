@@ -43,7 +43,7 @@
 					<div class="itemPrice">
 						<span class="itemPriceDegits">{{item.price}}€</span>
 					</div>
-					{% if auth_check is not null and auth_check.id == item.lists_id and date(list.limit_date) > date() %}
+					{% if auth_check is not null and auth_check.id == item.lists.user.id and date(item.lists.limit_date) > date() %}
 					<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">
 						<button type="submit" class="itemDeleteButton">X</button>
 					</form>
