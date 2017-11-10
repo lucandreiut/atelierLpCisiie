@@ -43,7 +43,7 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('title');
                 $table->string('description');
-                $table->date('limit_date');
+                $table->dateTime('limit_date');
                 $table->boolean('is_self_target');
                 $table->string('receiver');
                 $table->string('sharing_url');
