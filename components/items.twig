@@ -33,6 +33,43 @@
 			{% endif %}
 			<ul class="itemsList">
 			{% for item in items %}
+				{% if date(list.limit_date) <= date() %}
+					{% if item.is_reserved %}
+						<li class="item">
+					<div class="itemImage">
+						{% if item.images|length >= 1 %}
+						<img src="{{ upload_path ~ (item.images|first).url }}"/>
+						{% else %}
+						<img src="{{ upload_path ~ 'gift.png' }}"/>
+						{% endif %}
+					</div>
+					<div class="itemInformation">
+						<h2 class="itemTitle">{{item.title}}</h2>
+						{% if item.url %}
+						<div class="itemUrl">
+							<a target="_blank" href="{{item.url}}">Voir l'objet sur le net</a>
+						</div>
+						{% endif %}
+						<div class="itemDetails">
+							<a href="{{path_for('item_details', {id: item.id, 'url': item.lists.sharing_url})}}" >Ouvrir le cadeau</a>
+						</div>
+					</div>
+					<div class="itemPrice">
+					{% if item.is_reserved %}
+						<span class="itemPriceDegits">Réservé</span>
+					{% else %}
+						{% if item.is_crowdfundable %}
+							<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+						{% else %}
+							<span class="itemPriceDegits">{{item.price}}€</span>
+						{% endif %}
+					{% endif %}
+					</div>
+					{% if auth_check is not null and auth_check.id == item.lists.user.id and date(item.lists.limit_date) > date() %}
+					{% endif %}
+				</li>
+					{% endif %}
+				{% else %}
 				<li class="item">
 					<div class="itemImage">
 						{% if item.images|length >= 1 %}
@@ -44,10 +81,8 @@
 					<div class="itemInformation">
 						<h2 class="itemTitle">{{item.title}}</h2>
 						{% if item.url %}
-
-						<!--<a href="{{item.id}}" class="itemUrl">Page du cadeau</a>-->
 						<div class="itemUrl">
-							<a target="_blank" href="{{item.url}}">Page du cadeau</a>
+							<a target="_blank" href="{{item.url}}">Voir l'objet sur le net</a>
 						</div>
 						{% endif %}
 						<div class="itemDetails">
@@ -60,13 +95,18 @@
 						{% endif %}
 					</div>
 					<div class="itemPrice">
-					{% if item.is_crowdfundable %}
-						<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+					{% if item.is_reserved %}
+						<span class="itemPriceDegits">Réservé</span>
 					{% else %}
-						<span class="itemPriceDegits">{{item.price}}€</span>
+						{% if item.is_crowdfundable %}
+							<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+						{% else %}
+							<span class="itemPriceDegits">{{item.price}}€</span>
+						{% endif %}
 					{% endif %}
 					</div>
 				</li>
+				{% endif %}
 			{% else %}
 				<h2>La liste ne contient aucun cadeau</h2>
 			{% endfor %}
