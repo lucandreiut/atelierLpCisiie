@@ -43,6 +43,9 @@ class ReservationController extends BaseController
     }
 
     /*	public function dereserve($request, $response, $args){
+
+		//set cookie dans réserver et vérifier ici pour faire la déreservation
+		
         $item = Item::find($request->getAttribute('route')->getArgument('id'));
         $list = Lists::find($item->lists_id);
         $verif = $this->verification($item->id);
@@ -57,7 +60,7 @@ class ReservationController extends BaseController
 				$contributor = new ContributorController;
 				$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
 			 } else {
-				die('cadeau déjà financé');
+				die('error');
 		 	}
     }
 

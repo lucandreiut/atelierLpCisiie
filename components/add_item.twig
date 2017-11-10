@@ -81,5 +81,10 @@
 					</div>
 				</div>
 			</form>
+
+			<form class="backto-list-button" action="{{ path_for('get_items_by_list', {id: list.sharing_url}) }}">
+            	<input type="submit" value="Retour">
+        	</form>
+
 		</div>
 	{% endblock %}
