@@ -597,3 +597,36 @@
         }
     }
 }
+
+.errorContainer{
+    @include container(70%);
+    margin: auto;
+
+    @media screen and (max-width: 601px){
+        @include container(100%);
+    }
+
+    @media screen and (max-width: 400px){
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .errorElements{
+        @extend .row;
+        @media screen and (max-width: 601px){
+            justify-content: center;
+        }
+        .errorImageContainer{
+            @extend .col-4;
+        }
+
+        .errorTextContainer{
+            display: flex;
+            align-items: center;
+            @extend .col-7;
+            p{
+                font-size: 1.2em;
+            }
+        }
+    }
+}
