@@ -13,24 +13,20 @@
     <div class="container">
         <p class="title">Discussion</p>
 
-        <form action="{{ path_for('get_items_by_list', {id: url}) }}" method="get">
-                <button type="submit">Retour</button>
-            </form>
-
-        
-
         <div class="global_message">
             {% for m in array %}
                 <div>
                     <p> <b> <u> {{ m.name }}</b></u> <i>le {{ m.date }}</i> : 
                         <br/>
-                        {{ m.message }} </p>
+                        {{ m.message }} 
                         <br/>
+                         <br/>
+                    </p>
                 </div>
             {% endfor %}
         </div>
 
-        <form class="form-create-list" action="{{path_for('send_message', {id: url})}}" method="POST" id="addMessage">
+        <form class="form-create-list" action="{{path_for('send_message', {id: url})}}" method="POST" id="Envoyer_message">
             <div class="form-content">
                 <div class="input">
                     <label for="Name">Nom : </label><input id="name" type="text" name="name" placeholder="Votre nom" required>
@@ -42,13 +38,11 @@
                 <div class="input">
                     <input class="add-list-button" type="submit" value="Envoyer">
                 </div>
+
+                 <div class="input">
+                    <a class="add-list-button btnChat" href="{{ path_for('get_items_by_list', {id: url}) }}"> Retour </a>
+                </div>
             </div>
         </form>
-
-
     </div>
-
-
-
-
 {% endblock %}
