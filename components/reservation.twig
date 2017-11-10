@@ -32,6 +32,9 @@
                 <div class="input">
                     <input class="add-list-button" type="submit" value="Contribuer">
                 </div>
+                <div class="input">
+                    <a class="add-list-button btnChat" href="{{ path_for('item_details', {id: item.id, 'url': item.lists.sharing_url}) }}"> Retour </a>
+                </div>
                  <input type="hidden" value="{{item.id}}" name="item_id" />
             </div>
         </form>
@@ -53,6 +56,9 @@
                 </div>
                 <div class="input">
                     <input class="add-list-button" type="submit" value="Réserver le cadeau">
+                </div>
+                <div class="input">
+                    <a class="add-list-button btnChat" href="{{ path_for('item_details', {id: item.id, 'url': item.lists.sharing_url}) }}"> Retour </a>
                 </div>
 		 		 <input type="hidden" value="{{item.id}}" name="item_id" />
             </div>
