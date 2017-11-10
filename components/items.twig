@@ -16,6 +16,7 @@
 					<div class="addNewItemForm">
 						<div class="control">
 					   		<a title="Ajouter nouveau" type="submit" href="{{path_for('add_item_page', {id : list.sharing_url})}}">Ajouter nouveau</a>
+					   		<a title="Discuter" type="submit" href="{{path_for('message', {id : list.sharing_url})}}">Discuter</a>
 						</div>
 					</div>
 				</div>
@@ -53,10 +54,6 @@
 				<h2>La liste ne contient aucun cadeau</h2>
 			{% endfor %}
 			</ul>
-
-			<form action="{{path_for('message', {id : list.sharing_url})}}" method="get">
-			    <button type="submit">Discuter</button>
-			</form>
 			
 		</div>
 	{% endblock %}
