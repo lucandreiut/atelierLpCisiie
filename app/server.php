@@ -10,6 +10,8 @@ require PATH_ROOT . '/vendor/autoload.php';
 
 session_start();
 
+ini_set('display_errors', 0);
+
 // Instantiate the app
 $settings = include PATH_ROOT . '/config/setting.php';
 $app = new \Slim\App($settings);

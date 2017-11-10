@@ -6,6 +6,8 @@ use Respect\Validation\Validator as v;
 use App\Models\Lists;
 use App\Models\Item;
 use App\Models\Image;
+use Cartalyst\Sentinel\Native\Facades\Sentinel as Sentinel;
+
 
 /**
  * The item controller
@@ -137,11 +139,12 @@ class ItemController extends BaseController
         if ($item->limit_date > new \Datetime()) {
             return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau demandé est introuvable'));
         }
-        /*
-        * Here goes the authentication logic
-        */
-        $sharing_url = $item->lists->sharing_url;
-        $item->delete();
+        
+        $user = Sentinel::check();
+
+        if (!$user || $user->id != $item->lists->user->id) {
+            return $this->get('view')->render($response, 'error.twig', array('error' => "Vous n'êtes pas autorisé à effectuer cette action"));
+        }
 
         /*
         * Here goes the authentication logic

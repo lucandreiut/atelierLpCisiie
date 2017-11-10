@@ -85,7 +85,7 @@ class AuthController extends BaseController
                 array_push($errors, "L'email entré est invalide !");                
             }
 
-            if (! v::length(1, 50)->validate(params['password'])) {
+            if (! v::length(1, 50)->validate($params['password'])) {
                 array_push($errors, "Le mot de passe entré est trop long !"); 
             }
             
