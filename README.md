@@ -7,6 +7,8 @@ Les auteurs de ce projet sont :
 - [Luc ANDRÉ](https://github.com/lucandreiut)
 - [Mohamed ALHASNE](https://github.com/alhasnecode)
 
+Le code PHP a été linter avec le Linter [PHP_CodeSniffer](http://pear.php.net/package/PHP_CodeSniffer).
+
 ### Installation via Composer
 - Clonez le dépôt git :
 ```
