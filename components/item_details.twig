@@ -73,7 +73,11 @@
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Voir l'objet sur le net</a>
 					{% endif %}
 					{% if not (item.is_reserved or date(item.lists.limit_date) <= date() or (auth_check is not null and auth_check.id == item.lists.user.id and item.lists.is_self_target)) %}
+						{% if item.is_crowdfundable %}
 						<a href="{{path_for('reservation', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemReservationRequest">Contribuer</a>
+						{% else %}
+						<a href="{{path_for('reservation', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemReservationRequest">Réserver</a>
+						{% endif %}
 					{% endif %}
 				</div>
 				<div class="itemMessages">
