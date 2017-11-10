@@ -16,27 +16,27 @@ class ItemController extends BaseController
     {
         $list = Lists::where('sharing_url', 'LIKE', $request->getAttribute('route')->getArgument('id'))->first();
         if (empty($list)) {
-            die('empty');
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'La liste demandée est introuvable'));
         }
         $items = $list->items;
-        return $this->container->view->render($response, 'items.twig', array('items' => $items, 'list' => $list));
+        return $this->get('view')->render($response, 'items.twig', array('items' => $items, 'list' => $list));
     }
 
     /*
     **Get single item details
     */
-    public function getItem($request, $response, $args) 
+    public function getItem($request, $response, $args)
     {
         $item = Item::find($request->getAttribute('route')->getArgument('id'));
         if (empty($item)) {
-            die('Item not found');
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau demandé est introuvable'));
         }
         $list = Lists::where('sharing_url', 'LIKE', $request->getAttribute('route')->getArgument('url'))->first();
-        if (empty($list)) {
-            die('Item not found');
+        if (empty($list)) { 
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau demandé est introuvable'));
         }
         if ($item->lists->id != $list->id) {
-            die('Non autorisé');
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'Nous avons le regret de ne pas être capable de satisfaire votre demande'));
         }
         return $this->get('view')->render($response, 'item_details.twig', array('item' => $item));
     }
@@ -128,18 +128,20 @@ class ItemController extends BaseController
         }
     }
 
-    /*
-    * Delete item
-    */
-    public function deleteItem($request, $response, $args) 
+    public function deleteItem($request, $response, $args)
     {
         $item = Item::find($request->getAttribute('route')->getArgument('id'));
         if (empty($item)) {
-            die('Cadeau introuvable');
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau demandé est introuvable'));
         }
         if ($item->limit_date > new \Datetime()) {
-            die('Cadeau introuvable');
+            return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau demandé est introuvable'));
         }
+        /*
+        * Here goes the authentication logic
+        */
+        $sharing_url = $item->lists->sharing_url;
+        $item->delete();
 
         /*
         * Here goes the authentication logic
