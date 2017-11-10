@@ -42,7 +42,7 @@ class Migrator {
             {
                 $table->integer('id', true);
                 $table->string('title');
-                $table->string('description');
+                $table->text('description');
                 $table->dateTime('limit_date');
                 $table->boolean('is_self_target');
                 $table->string('receiver');
@@ -106,7 +106,7 @@ class Migrator {
             {
                 $table->integer('id', true);
                 $table->string('title');
-                $table->string('description');
+                $table->text('description');
                 $table->double('price');
                 $table->string('url');
                 $table->boolean('is_crowdfundable');
