@@ -16,7 +16,17 @@
 					<div class="addNewItemForm">
 						<div class="control">
 					   		<a title="Ajouter nouveau" type="submit" href="{{path_for('add_item_page', {id : list.sharing_url})}}">Ajouter nouveau</a>
-					   		<a title="Discuter" type="submit" href="{{path_for('message', {id : list.sharing_url})}}">Discuter</a>
+					   		<a title="Discuter" type="submit" href="{{path_for('message', {id : list.sharing_url})}}#Envoyer_message">Discuter</a>
+					   		<a title="Retour" type="submit" href="{{path_for('lists')}}">Retour</a>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="addNewItem">
+					<div class="addNewItemForm">
+						<div class="control">
+					   		<a title="Discuter" type="submit" href="{{path_for('message', {id : list.sharing_url})}}#Envoyer_message">Discuter</a>
+					   		<a title="Retour" type="submit" href="{{path_for('lists')}}">Retour</a>
 						</div>
 					</div>
 				</div>
@@ -45,7 +55,11 @@
 						</form>
 					</div>
 					<div class="itemPrice">
+					{% if item.is_crowdfundable %}
+						<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+					{% else %}
 						<span class="itemPriceDegits">{{item.price}}€</span>
+					{% endif %}
 					</div>
 					{% if auth_check is not null and auth_check.id == item.lists.user.id and date(item.lists.limit_date) > date() %}
 					<!--<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">
