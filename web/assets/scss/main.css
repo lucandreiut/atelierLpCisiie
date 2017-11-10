@@ -377,7 +377,7 @@ tr {
     transform: translateY(2px);
     box-shadow: 0 2px grey; }
 
-.btn-flat-red, .list-of-lists div form input[type="submit"], .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton {
+.btn-flat-red, .backto-list-button input[type=submit], .list-of-lists div form input[type="submit"], .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton {
   line-height: 3;
   font-size: 120%;
   border-radius: 0;
@@ -389,13 +389,13 @@ tr {
   background: #e74c3c;
   box-shadow: 0 4px none;
   border: none; }
-  .btn-flat-red:hover, .list-of-lists div form input[type="submit"]:hover, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:hover {
+  .btn-flat-red:hover, .backto-list-button input[type=submit]:hover, .list-of-lists div form input[type="submit"]:hover, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:hover {
     background-color: #d62c1a; }
-  .btn-flat-red:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
+  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
     background: #a82315;
     transform: translateY(2px);
     box-shadow: 0 2px none; }
-  .btn-flat-red:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
+  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
     transform: none;
     box-shadow: none; }
 
@@ -873,7 +873,7 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -885,7 +885,7 @@ a {
 .offset-1, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .itemDetailsContainer .itemDetailsHeader .itemInformation {
   margin-left: 8.3333333333%; }
 
-.col-2, .itemsListContainer .itemsList .item .itemImage, .itemsListContainer .itemsList .item .itemPrice, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemPrice {
+.col-2, .backto-list-button input[type=submit], .itemsListContainer .itemsList .item .itemImage, .itemsListContainer .itemsList .item .itemPrice, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemPrice {
   flex-basis: 16.6666666667%;
   box-sizing: border-box; }
 
@@ -910,7 +910,7 @@ a {
   flex-basis: 41.6666666667%;
   box-sizing: border-box; }
 
-.offset-5 {
+.offset-5, .backto-list-button input[type=submit] {
   margin-left: 41.6666666667%; }
 
 .col-6, .form-create-list .form-content, .form-add-list input, .global_message, .addItemContainer .addItemForm .addItemFormContent, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow div {
@@ -973,7 +973,7 @@ a {
   .offset-md-1, .error-alert div, .list-of-lists div a {
     margin-left: 8.3333333333%; }
 
-  .col-md-2 {
+  .col-md-2, .backto-list-button input[type=submit] {
     flex-basis: 16.6666666667%;
     box-sizing: border-box; }
 
@@ -998,7 +998,7 @@ a {
     flex-basis: 41.6666666667%;
     box-sizing: border-box; }
 
-  .offset-md-5 {
+  .offset-md-5, .backto-list-button input[type=submit] {
     margin-left: 41.6666666667%; }
 
   .col-md-6 {
@@ -1064,7 +1064,7 @@ a {
     flex-basis: 16.6666666667%;
     box-sizing: border-box; }
 
-  .offset-sm-2 {
+  .offset-sm-2, .backto-list-button input[type=submit] {
     margin-left: 16.6666666667%; }
 
   .col-sm-3 {
@@ -1102,7 +1102,7 @@ a {
   .offset-sm-7 {
     margin-left: 58.3333333333%; }
 
-  .col-sm-8, .list-of-lists div a {
+  .col-sm-8, .list-of-lists div a, .backto-list-button input[type=submit] {
     flex-basis: 66.6666666667%;
     box-sizing: border-box; }
 
@@ -1150,7 +1150,7 @@ a {
 .form-create-list {
   color: #2c3e50;
   padding-top: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 10px; }
   .form-create-list .form-content {
     background: #ecf0f1;
     border-radius: 5px; }
