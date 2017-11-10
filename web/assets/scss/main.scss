@@ -147,18 +147,44 @@
 
 
 .global_message {
-     @extend .row;
+    @extend .row;
+    @extend .col-6;
+    @extend .offset-3;
 
     & div {
-        @extend .row;
-        @extend .col-10;
-        @extend .offset-1;
+      @extend .row;
 
         & p {
-            width:25%;
+            width:50%;
             word-wrap: break-word;
+            color:lighten(black,20);
+
+             b {
+                font-weight:bold;
+                color:black;
+             }
+
+             u {
+              border:none;  
+             }
+
+             i{
+                font-style:oblique;
+                color:lighten(black,65);
+             }
         }
+
+
     }
+}
+
+.btnChat{
+    background-color:darken(red,5);
+    font-weight:normal;
+    &:hover{
+        background-color:darken(red,15);
+    }
+
 }
 
 .header {
@@ -253,6 +279,35 @@
         }
     }
 
+    .global_message {
+        @extend .col-md-12;
+        @extend .offset-md-0;
+
+        & div {
+            padding-left:2%;
+            & p {
+                width:95%;
+                word-wrap: break-word;
+                color:lighten(black,20);
+
+                 b {
+                    font-weight:bold;
+                    color:black;
+                 }
+
+                 u {
+                  border:none;  
+                 }
+
+                 i{
+                    font-style:oblique;
+                    color:lighten(black,65);
+                 }
+            }
+
+        }
+    }
+
     .form-add-list {
         & input {
             @extend .col-md-8;
@@ -312,6 +367,37 @@
                     font-size: 80%;
                 }
             }
+        }
+    }
+
+    .global_message {
+        @extend .col-sm-12;
+        @extend .offset-sm-0;
+
+        & div {
+            padding-left:2%;
+
+            & p {
+                width:93%;
+                word-wrap: break-word;
+                color:lighten(black,20);
+
+                 b {
+                    font-weight:bold;
+                    color:black;
+                 }
+
+                 u {
+                  border:none;  
+                 }
+
+                 i{
+                    font-style:oblique;
+                    color:lighten(black,65);
+                 }
+            }
+
+
         }
     }
 
@@ -526,6 +612,25 @@
                             @extend .col-12;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+.headerDetail{
+
+    .headerDetailReturn{
+        @include container(60%);
+        margin: auto;
+        padding: 20px 0;
+        .returnBtn{
+            @extend .row;
+            .control{
+                @extend .col-4;
+                a{
+                    @extend .link-green;
+                    border-radius: 0;
                 }
             }
         }

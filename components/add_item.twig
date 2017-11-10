@@ -13,11 +13,7 @@
 
 	{% block content %}
 		<div class="addItemContainer">
-			{% if list is not null %}
-			<h2>Ajout d'un cadeau à la liste {{ list.title }}</h2>
-			{% else %}
-			<h2>Ajout d'un cadeau au groupe {{ group.title }}</h2>
-			{% endif %}
+
 			<form class="addItemForm" action="{{(list is not null) ? path_for('add_item_action', {id: list.id}) : null }}" method="post" enctype="multipart/form-data">
 				<div class="addItemFormContent">
 					{% if list is not null %}
