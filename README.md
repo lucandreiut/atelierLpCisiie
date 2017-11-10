@@ -15,7 +15,7 @@ Le code PHP a été linté avec le Linter [PHP_CodeSniffer](http://pear.php.net/
 $ git clone git@github.com:lucandreiut/atelierLpCisiie.git
 ```
 - Exécutez la commande `$ composer update`
-- Changez les paramètres de la base de données dans le fichier `config/database.php`, puis donnez lui les droits suivants (sous Linux) :
+- Changez les paramètres de la base de données dans le fichier `config/database.php`, changez les identifiants MySQL,puis donnez lui les droits suivants (sous Linux) :
 ```
 $ chmod 666 config/database.php
 ```
