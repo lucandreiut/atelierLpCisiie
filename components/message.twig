@@ -38,11 +38,12 @@
                 <div class="input">
                     <input class="add-list-button" type="submit" value="Envoyer">
                 </div>
-
-                 <div class="input">
-                    <a class="add-list-button btnChat" href="{{ path_for('get_items_by_list', {id: url}) }}"> Retour </a>
-                </div>
             </div>
         </form>
+
+        <form class="backto-list-button" action="{{ path_for('get_items_by_list', {id: url}) }}">
+            <input type="submit" value="Retour">
+        </form>
+
     </div>
 {% endblock %}
