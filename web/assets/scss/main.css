@@ -377,7 +377,7 @@ tr {
     transform: translateY(2px);
     box-shadow: 0 2px grey; }
 
-.btn-flat-red, .backto-list-button input[type=submit], .list-of-lists div form input[type="submit"], .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton {
+.btn-flat-red, .backto-list-button input[type=submit], .list-of-lists div form input[type="submit"], .itemsListContainer .itemsList .item .itemInformation .itemDelete .itemDeleteButton {
   line-height: 3;
   font-size: 120%;
   border-radius: 0;
@@ -389,13 +389,13 @@ tr {
   background: #e74c3c;
   box-shadow: 0 4px none;
   border: none; }
-  .btn-flat-red:hover, .backto-list-button input[type=submit]:hover, .list-of-lists div form input[type="submit"]:hover, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:hover {
+  .btn-flat-red:hover, .backto-list-button input[type=submit]:hover, .list-of-lists div form input[type="submit"]:hover, .itemsListContainer .itemsList .item .itemInformation .itemDelete .itemDeleteButton:hover {
     background-color: #d62c1a; }
-  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
+  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemInformation .itemDelete .itemDeleteButton:active {
     background: #a82315;
     transform: translateY(2px);
     box-shadow: 0 2px none; }
-  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton:active {
+  .btn-flat-red:active, .backto-list-button input[type=submit]:active, .list-of-lists div form input[type="submit"]:active, .itemsListContainer .itemsList .item .itemInformation .itemDelete .itemDeleteButton:active {
     transform: none;
     box-shadow: none; }
 
@@ -873,40 +873,40 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .itemsListContainer .itemsList .item .itemInformation, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
 
-.col-1, .itemsListContainer .itemsList .item .itemDelete {
+.col-1 {
   flex-basis: 8.3333333333%;
   box-sizing: border-box; }
 
 .offset-1, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .itemDetailsContainer .itemDetailsHeader .itemInformation {
   margin-left: 8.3333333333%; }
 
-.col-2, .backto-list-button input[type=submit], .itemsListContainer .itemsList .item .itemImage, .itemsListContainer .itemsList .item .itemPrice, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemPrice {
+.col-2, .backto-list-button input[type=submit], .itemDetailsContainer .itemDetailsHeader .itemInformation .itemPrice {
   flex-basis: 16.6666666667%;
   box-sizing: border-box; }
 
 .offset-2, .error-alert div {
   margin-left: 16.6666666667%; }
 
-.col-3, .itemDetailsContainer .itemDetailsHeader .itemImages, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages {
+.col-3, .itemsListContainer .itemsList .item .itemPrice, .itemDetailsContainer .itemDetailsHeader .itemImages, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages {
   flex-basis: 25%;
   box-sizing: border-box; }
 
-.offset-3, .form-create-list .form-content, .form-add-list input, .global_message, .addItemContainer .addItemForm .addItemFormContent {
+.offset-3, .form-create-list .form-content, .form-add-list input, .global_message {
   margin-left: 25%; }
 
-.col-4, .header .headerLogo, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control {
+.col-4, .header .headerLogo, .itemsListContainer .itemsList .item .itemImage, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control {
   flex-basis: 33.3333333333%;
   box-sizing: border-box; }
 
 .offset-4 {
   margin-left: 33.3333333333%; }
 
-.col-5 {
+.col-5, .itemsListContainer .itemsList .item .itemInformation {
   flex-basis: 41.6666666667%;
   box-sizing: border-box; }
 
@@ -920,7 +920,7 @@ a {
 .offset-6 {
   margin-left: 50%; }
 
-.col-7, .itemsListContainer .itemsList .item .itemInformation {
+.col-7 {
   flex-basis: 58.3333333333%;
   box-sizing: border-box; }
 
@@ -955,7 +955,7 @@ a {
 .offset-11 {
   margin-left: 91.6666666667%; }
 
-.col-12, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames .uploadesFilename, .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage {
+.col-12, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames .uploadesFilename, .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage {
   flex-basis: 100%;
   box-sizing: border-box; }
 
@@ -1311,27 +1311,60 @@ a {
   width: 60%;
   margin: auto;
   padding: 20px 0; }
+  @media screen and (max-width: 768px) {
+    .itemsListContainer .addNewItem {
+      width: 90%; } }
   .itemsListContainer .addNewItem .addNewItemForm .control a {
     border-radius: 0; }
 .itemsListContainer .itemsList {
   width: 60%;
   margin: auto; }
+  @media screen and (max-width: 768px) {
+    .itemsListContainer .itemsList {
+      width: 90%; } }
   .itemsListContainer .itemsList .item {
     margin-left: 0;
     margin-bottom: 15px;
     padding: 10px;
+    box-sizing: border-box;
     background-color: #DBEDFF; }
+    @media screen and (max-width: 601px) {
+      .itemsListContainer .itemsList .item {
+        flex-direction: column; } }
     .itemsListContainer .itemsList .item .itemImage img {
       width: 100%;
       height: auto; }
     .itemsListContainer .itemsList .item .itemInformation {
       padding-left: 10px; }
+      @media screen and (max-width: 768px) {
+        .itemsListContainer .itemsList .item .itemInformation {
+          flex-direction: column;
+          justify-content: flex-start; } }
       .itemsListContainer .itemsList .item .itemInformation .itemTitle {
-        margin: 0; }
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+        width: 100%; }
       .itemsListContainer .itemsList .item .itemInformation .itemUrl {
+        margin-left: 5px;
+        margin-bottom: 5px;
         border-radius: 0; }
       .itemsListContainer .itemsList .item .itemInformation .itemDetails {
+        margin-left: 5px;
+        margin-bottom: 5px;
         border-radius: 0; }
+      .itemsListContainer .itemsList .item .itemInformation .itemDelete {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .itemsListContainer .itemsList .item .itemInformation .itemDelete .itemDeleteButton {
+          font-size: 1em;
+          text-align: left;
+          padding-left: 10px;
+          padding-top: 5px;
+          padding-bottom: 5px; }
     .itemsListContainer .itemsList .item .itemPrice {
       display: flex;
       flex-direction: column;
@@ -1340,20 +1373,21 @@ a {
         background-color: white;
         align-self: center;
         padding: 10px; }
-    .itemsListContainer .itemsList .item .itemDelete {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; }
-      .itemsListContainer .itemsList .item .itemDelete .itemDeleteButton {
-        align-self: center; }
 
 .addItemContainer .addItemForm {
   color: #2c3e50;
   padding-top: 30px;
   padding-bottom: 30px; }
   .addItemContainer .addItemForm .addItemFormContent {
+    margin: auto;
     background: #ecf0f1;
     border-radius: 5px; }
+    @media screen and (max-width: 768px) {
+      .addItemContainer .addItemForm .addItemFormContent {
+        flex-basis: 100%; } }
+    .addItemContainer .addItemForm .addItemFormContent .addToListTitle {
+      margin-bottom: 20px;
+      text-align: center; }
     .addItemContainer .addItemForm .addItemFormContent .addItemFormControl {
       padding: 10px 0px;
       font-weight: bolder;
@@ -1392,6 +1426,12 @@ a {
   padding: 10px;
   background-color: #DBEDFF;
   box-sizing: border-box; }
+  @media screen and (max-width: 400px) {
+    .itemDetailsContainer {
+      width: 100%; } }
+  @media screen and (max-width: 768px) {
+    .itemDetailsContainer .itemDetailsHeader {
+      flex-direction: column; } }
   .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage div {
     margin-bottom: 10px; }
     .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage div img {
@@ -1404,6 +1444,9 @@ a {
       width: 100%;
       height: auto;
       cursor: pointer; }
+  @media screen and (max-width: 768px) {
+    .itemDetailsContainer .itemDetailsHeader .itemInformation {
+      margin-left: 0; } }
   .itemDetailsContainer .itemDetailsHeader .itemInformation .itemTitle {
     margin: 0;
     font-size: 1.2em; }

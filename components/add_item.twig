@@ -20,6 +20,11 @@
 			{% endif %}
 			<form class="addItemForm" action="{{(list is not null) ? path_for('add_item_action', {id: list.id}) : null }}" method="post" enctype="multipart/form-data">
 				<div class="addItemFormContent">
+					{% if list is not null %}
+					<h2 class="addToListTitle">Ajout d'un cadeau à la liste {{ list.title }}</h2>
+					{% else %}
+					<h2 class="addToListTitle">Ajout d'un cadeau au groupe {{ group.title }}</h2>
+					{% endif %}
 					<div class="addItemFormControl">
 						<label for="title">Titre: </label>
 						<input type="text" name="title" id="title" value="{{old.title? old.title:''}}" />
