@@ -16,7 +16,7 @@ class MessageController extends BaseController
 		$message = new Message;
 		$message->name = $request->getParam('userName');
 		$message->message = $request->getParam('userMsg');
-		$message->list_id = $list->id;
+		$message->lists_id = $list->id;
 		$message->save();
 
 	}
@@ -24,7 +24,7 @@ class MessageController extends BaseController
 	public function findAll($request, $response, $args){
 
 		$list = Lists::where('sharing_url','like',$request->getAttribute('route')->getArgument('id'))->first();
-		$messages = Message::where('list_id','=',$list->id)->get();
+		$messages = Message::where('lists_id','=',$list->id)->get();
 
 		foreach ($messages as $value) {
 			$array[]=$value;
@@ -46,10 +46,10 @@ class MessageController extends BaseController
 		$send = new Message;
 		$send->name = $request->getParam('name');
 		$send->message = $request->getParam('message');
-		$send->list_id = $list->id;
+		$send->lists_id = $list->id;
 		$send->save();
 
-		$messages = Message::where('list_id','=',$list->id)->get();
+		$messages = Message::where('lists_id','=',$list->id)->get();
 		foreach ($messages as $value) {
 			$array[]=$value;
 		}

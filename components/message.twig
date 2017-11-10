@@ -12,6 +12,13 @@
 {% block content %}
     <div class="container">
         <p class="title">Discussion</p>
+
+        <form action="{{ path_for('get_items_by_list', {id: url}) }}" method="get">
+                <button type="submit">Retour</button>
+            </form>
+
+        
+
         <div class="global_message">
             {% for m in array %}
                 <div>
