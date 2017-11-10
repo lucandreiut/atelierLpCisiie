@@ -6,6 +6,41 @@
 
 
 {% block custom_assets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ base_url() }}/web/assets/css/jquery.datetimepicker.css">
+    <script src="{{ base_url() }}/web/assets/js/jquery.datetimepicker.full.min.js"></script>
+
+    <script>
+        $(function () 
+        {
+            $('#datetimepicker').datetimepicker();
+            $.datetimepicker.setLocale('fr');
+            $('#datetimepicker').datetimepicker(
+            {
+                i18n:
+                {
+                    fr:
+                    {
+                        months:
+                        [
+                            'Janvier','Fevrier','Mars','Avril',
+                            'Mai','Juin','Juillet','Aout',
+                            'Septembre','Octobre','Novembre','Decembre',
+                        ],
+                        dayOfWeek:
+                        [
+                            "Dim.", "Lun", "Mar", "Mer", 
+                            "Jeu", "Ven", "Sam",
+                        ]
+                    }
+                },
+                    
+                timepicker:true,
+                step: 60,
+                format:'d/m/Y H:i'
+            });
+        });
+    </script>
 {% endblock %}
 
 
@@ -50,8 +85,8 @@
                 </div>
                 
                 <div class="input">
-                    <label for="date">Date et heure d'expiration de la liste : </label>
-                    <input id="date" type="text" name="date" placeholder="01/01/2001 13:30:20" required>
+                    <label for="datetimepicker">Date et heure d'expiration de la liste : </label>
+                    <input id="datetimepicker" type="text" name="date" placeholder="01/01/2001 13:30" required>
                 </div>
                 
                 <div class="input">

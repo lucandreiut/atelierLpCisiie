@@ -28,7 +28,7 @@ class ListController extends BaseController
 			$info_list = [
 				"id" => $l->id,
 				"title" => $l->title,
-				"date" => $l->limit_date, 
+				"date" => date('d/m/Y à H:i', strtotime($l->limit_date)), 
 				"url" => $l->sharing_url
 			];
 
@@ -59,8 +59,8 @@ class ListController extends BaseController
 			if($params['self_targeted'] === "false" && ! v::alpha('-')->length(1, 255)->validate($params['target']))
 				array_push($errors, "Si vous n'êtes pas le déstinataire de la liste, vous devez saisir un destinataire valide !");
 
-			if(! v::Date('d/m/Y H:i:s')->validate($params['date']) 
-			|| strtotime($params['date']) < strtotime( (new \DateTime())->format('d/m/Y H:i:s') ))
+			if(! v::Date('d/m/Y H:i')->validate($params['date']) 
+			|| strtotime($params['date']) < strtotime( (new \DateTime())->format('d/m/Y H:i') ))
 				array_push($errors, "Le format de la date spécifiée n'est pas valide !");
 
 			if(sizeof($errors) == 0)
@@ -69,7 +69,7 @@ class ListController extends BaseController
 
 				$list->title = $params['title'];
 				$list->description = $params['description'];
-				$list->limit_date = \Datetime::createFromFormat('d/m/Y H:i:s', $params['date']);
+				$list->limit_date = \Datetime::createFromFormat('d/m/Y H:i', $params['date']);
 				$list->is_self_target = $params['self_targeted'] === "true" ? true : false ;
 				$list->receiver = $params['self_targeted'] === "true" ? $params['target'] : "";
 				$list->sharing_url = "";
