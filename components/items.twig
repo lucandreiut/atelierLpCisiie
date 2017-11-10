@@ -21,6 +21,15 @@
 						</div>
 					</div>
 				</div>
+			{% else %}
+				<div class="addNewItem">
+					<div class="addNewItemForm">
+						<div class="control">
+					   		<a title="Discuter" type="submit" href="{{path_for('message', {id : list.sharing_url})}}#Envoyer_message">Discuter</a>
+					   		<a title="Retour" type="submit" href="{{path_for('lists')}}">Retour</a>
+						</div>
+					</div>
+				</div>
 			{% endif %}
 			<ul class="itemsList">
 			{% for item in items %}

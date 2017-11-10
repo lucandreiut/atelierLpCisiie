@@ -29,15 +29,12 @@ class ReservationController extends BaseController
 						$item->current_contribution = $item->price;
 						$item->is_reserved = 1;
 				}
-				//$item->save();
-				//$contributor = new ContributorController;
-				//$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+
 			} else {
-				die('cadeau déjà financé');
+				return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau à déjà été financé'));
 			}
 			}else{
 				$item->is_reserved = 1;
-				//$item->save();
 			}
 			$item->save();
 			$contributor = new ContributorController;
@@ -47,7 +44,7 @@ class ReservationController extends BaseController
 		return $response->withRedirect('/lists/'.$list->sharing_url.'/items');
 	}
 
-	public function contribute($request, $response, $args){
+/*	public function dereserve($request, $response, $args){
 		$item = Item::find($request->getAttribute('route')->getArgument('id'));
 		$list = Lists::find($item->lists_id);
 		$verif = $this->verification($item->id);
@@ -56,7 +53,7 @@ class ReservationController extends BaseController
 				$item->curent_contribution += $request->getParam('contribution');
 				if($item->current_contribution >= $item->price){
 					$item->current_contribution = $item->price;
-					$item->is_reserved = 1;
+					$item->is_reserved = 0;
 				}
 				$item->save();
 				$contributor = new ContributorController;
@@ -67,7 +64,7 @@ class ReservationController extends BaseController
 		}
 
 		return $response->withRedirect('/lists/'.$list->sharing_url.'/items');
-	}
+	}*/
 
 	public function verification($id){
 		$boolean = false;
@@ -82,15 +79,17 @@ class ReservationController extends BaseController
 				if ($target>$datenow){
 					$boolean = true;
 				} else {
-					die('date expirée');
+					return $this->get('view')->render($response, 'error.twig', array('error' => "Il n'est plus possible de réserver sur cette liste"));
 				}
 			} else {
-				die('cadeau déjà réservé');
+				return $this->get('view')->render($response, 'error.twig', array('error' => 'Le cadeau à déjà été financé'));
 			}
 		} else {
-			die("le cadeau n'existe pas");
+			return $this->get('view')->render($response, 'error.twig', array('error' => "Le cadeau n'existe pas"));
 		}
 
 		return $boolean;
 	}
+
+
 }

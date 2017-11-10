@@ -1,0 +1,24 @@
+{% extends 'templates/base_layout.twig' %}
+
+	{% block title %}
+		{{ parent() }} Oops!
+	{% endblock %}
+
+
+	{% block custom_assets %}
+	{% endblock %}
+
+
+	{% block content %}
+		<div class="errorContainer">
+			<div class="errorElements">
+				<div class="errorImageContainer">
+					<img src="{{ upload_path ~ 'error.png' }}"/>
+				</div>
+
+				<div class="errorTextContainer">
+					<p>Une erreur est survenue, nous avons le regret de ne pas être capables de satsfaire votre demande.</p>
+				</div>
+			</div>
+		</div>
+	{% endblock %}

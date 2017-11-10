@@ -873,7 +873,7 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .itemsListContainer .itemsList .item .itemInformation, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .itemsListContainer .itemsList .item .itemInformation, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow, .errorContainer .errorElements {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -899,7 +899,7 @@ a {
 .offset-3, .form-create-list .form-content, .form-add-list input, .global_message {
   margin-left: 25%; }
 
-.col-4, .header .headerLogo, .itemsListContainer .itemsList .item .itemImage, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control {
+.col-4, .header .headerLogo, .itemsListContainer .itemsList .item .itemImage, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control, .errorContainer .errorElements .errorImageContainer {
   flex-basis: 33.3333333333%;
   box-sizing: border-box; }
 
@@ -920,7 +920,7 @@ a {
 .offset-6 {
   margin-left: 50%; }
 
-.col-7 {
+.col-7, .errorContainer .errorElements .errorTextContainer {
   flex-basis: 58.3333333333%;
   box-sizing: border-box; }
 
@@ -1465,5 +1465,24 @@ a {
     border-radius: 0; }
   .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
     border-radius: 0; }
+
+.errorContainer {
+  width: 70%;
+  margin: auto; }
+  @media screen and (max-width: 601px) {
+    .errorContainer {
+      width: 100%; } }
+  @media screen and (max-width: 400px) {
+    .errorContainer {
+      flex-direction: column;
+      justify-content: center; } }
+  @media screen and (max-width: 601px) {
+    .errorContainer .errorElements {
+      justify-content: center; } }
+  .errorContainer .errorElements .errorTextContainer {
+    display: flex;
+    align-items: center; }
+    .errorContainer .errorElements .errorTextContainer p {
+      font-size: 1.2em; }
 
 /*# sourceMappingURL=main.css.map */
