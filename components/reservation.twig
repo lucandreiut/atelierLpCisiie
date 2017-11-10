@@ -19,9 +19,11 @@
         </p>
         <form class="form-create-list" action="{{path_for('reserve_validation', {id: item.id, 'url': item.lists.sharing_url})}}" method="POST" id="addList">
             <div class="form-content">
+                {% if auth_check is null %}
                 <div class="input">
                     <label for="nom">Nom : </label><input id="nom" type="text" name="userName" placeholder="Votre nom" required>
                 </div>
+                {% endif %}
 
                 <div class="input">
                     <label for="message">Message : </label><textarea form="addList" id="message" class="message" type="text" name="userMsg" placeholder="Votre message" required></textarea>

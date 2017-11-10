@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Item;
 use App\Models\Lists;
+use Cartalyst\Sentinel\Native\Facades\Sentinel as Sentinel;
 
 class ReservationController extends BaseController
 {
@@ -36,7 +37,12 @@ class ReservationController extends BaseController
             }
             $item->save();
             $contributor = new ContributorController;
-            $contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+            $user = Sentinel::check();
+            if($user){
+                $contributor->create($user->name , $request->getParam('userMsg'), $item->id);
+            }else{
+                $contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+            }
         }
 
         return $response->withRedirect('/lists/'.$list->sharing_url.'/items');
