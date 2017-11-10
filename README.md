@@ -21,7 +21,7 @@ $ chmod 666 config/database.php
 ```
 - Créez la base de données dont vous avez indiqué le nom dans le fichier `config/database.php` précédemment, puis créez le schéma de la base de données en exécutant la commande `$ php migrate`
 - Démarrez l'application sur le serveur interne de PHP en exécutant la commande `$ php -S localhost:8000`
-- Allez sur l'url http://localhost:8000/lists pour visualiser la page de démonstration
+- Allez sur l'url http://localhost:8000/ pour accéder à l'application
 - Donnez les droits au répertoire `storage/` (sous Linux) :
 ```
 $ chmod -R 777 storage
