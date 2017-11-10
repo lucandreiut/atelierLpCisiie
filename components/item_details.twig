@@ -60,7 +60,7 @@
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>
 					{% endif %}
 					{% if not (item.is_reserved or date(item.lists.limit_date) <= date() or (auth_check is not null and auth_check.id == item.lists.user.id and item.lists.is_self_target)) %}
-						<a href="{{path_for('reservation', {id: item.id})}}" class="itemReservationRequest">Réserver</a>
+						<a href="{{path_for('reservation', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemReservationRequest">Réserver</a>
 					{% endif %}
 				</div>
 				<div class="itemMessages">

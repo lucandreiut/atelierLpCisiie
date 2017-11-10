@@ -43,7 +43,7 @@ class Migrator {
                 $table->integer('id', true);
                 $table->string('title');
                 $table->string('description');
-                $table->date('limit_date');
+                $table->dateTime('limit_date');
                 $table->boolean('is_self_target');
                 $table->string('receiver');
                 $table->string('sharing_url');
@@ -53,7 +53,7 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('users_id')->references('id')->on('users');
+                $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             });
         }
 
@@ -73,7 +73,7 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('lists_id')->references('id')->on('list');
+                $table->foreign('lists_id')->references('id')->on('list')->onDelete('cascade');
             });
         }
 		
@@ -94,7 +94,7 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('lists_id')->references('id')->on('list');
+                $table->foreign('lists_id')->references('id')->on('list')->onDelete('cascade');
             });
         }
 
@@ -120,8 +120,8 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('group_id')->references('id')->on('group');
-                $table->foreign('lists_id')->references('id')->on('list');
+                $table->foreign('group_id')->references('id')->on('group')->onDelete('cascade');
+                $table->foreign('lists_id')->references('id')->on('list')->onDelete('cascade');
                 
             });
         }
@@ -140,7 +140,7 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('item_id')->references('id')->on('item');
+                $table->foreign('item_id')->references('id')->on('item')->onDelete('cascade');
 
 
             });
@@ -164,8 +164,8 @@ class Migrator {
                 $table->engine = 'InnoDB';
 
                 //Foreign keys declaration
-                $table->foreign('group_id')->references('id')->on('group');
-                $table->foreign('item_id')->references('id')->on('item');
+                $table->foreign('group_id')->references('id')->on('group')->onDelete('cascade');
+                $table->foreign('item_id')->references('id')->on('item')->onDelete('cascade');
 
 
             });
