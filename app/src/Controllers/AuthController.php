@@ -124,7 +124,7 @@ class AuthController extends BaseController
         if ($user = Sentinel::check()) {
             Sentinel::logout($user);            
         }
-        
+
         return $response->withRedirect('/login');
     }
 } 
