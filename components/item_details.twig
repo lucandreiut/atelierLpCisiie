@@ -21,6 +21,15 @@
 
 
 	{% block content %}
+		<div class="headerDetail">
+			<div class="headerDetailReturn">
+					<div class="returnBtn">
+						<div class="control">
+					   		<a title="Retour" type="submit" href="{{path_for('get_items_by_list', {id : item.lists.sharing_url})}}">Retour</a>
+						</div>
+					</div>
+			</div>
+		</div>
 		<div class="itemDetailsContainer">
 			<div class="itemDetailsHeader">
 				<div class="itemImages">

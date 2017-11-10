@@ -576,11 +576,31 @@
     }
 }
 
+.headerDetail{
+
+    .headerDetailReturn{
+        @include container(60%);
+        margin: auto;
+        padding: 20px 0;
+        .returnBtn{
+            @extend .row;
+            .control{
+                @extend .col-4;
+                a{
+                    @extend .link-green;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}
+
 .itemDetailsContainer{
     @include container(60%);
     margin: auto;
     padding: 10px;
     background-color: #DBEDFF;
+    box-sizing:border-box;
 
     .itemDetailsHeader{
         @extend .row;

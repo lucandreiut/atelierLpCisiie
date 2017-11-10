@@ -831,7 +831,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
+.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails, .headerDetail .headerDetailReturn .returnBtn .control a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -873,7 +873,7 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -899,7 +899,7 @@ a {
 .offset-3, .form-create-list .form-content, .form-add-list input, .global_message, .addItemContainer .addItemForm .addItemFormContent {
   margin-left: 25%; }
 
-.col-4, .header .headerLogo, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton {
+.col-4, .header .headerLogo, .itemsListContainer .addNewItem .addNewItemForm .control, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control {
   flex-basis: 33.3333333333%;
   box-sizing: border-box; }
 
@@ -1379,11 +1379,19 @@ a {
         padding-top: 10px;
         padding-bottom: 10px; }
 
+.headerDetail .headerDetailReturn {
+  width: 60%;
+  margin: auto;
+  padding: 20px 0; }
+  .headerDetail .headerDetailReturn .returnBtn .control a {
+    border-radius: 0; }
+
 .itemDetailsContainer {
   width: 60%;
   margin: auto;
   padding: 10px;
-  background-color: #DBEDFF; }
+  background-color: #DBEDFF;
+  box-sizing: border-box; }
   .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage div {
     margin-bottom: 10px; }
     .itemDetailsContainer .itemDetailsHeader .itemImages .itemBigImage div img {
