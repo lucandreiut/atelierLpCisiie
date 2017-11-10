@@ -1,4 +1,5 @@
 <?php
+
 // DIC configuration
 
 $container = $app->getContainer();
@@ -18,15 +19,20 @@ $container['renderer'] = function ($c) {
 // Register component on container
 $container['view'] = function ($c) {
     $settings = $c->get('settings')['view'];
-    $view = new \Slim\Views\Twig($settings['template_path'], [
-        'debug' => $settings['debug'],
-        'cache' => $settings['cache_path']
-    ]);
-	// Add extensions
-    $view->addExtension(new \Slim\Views\TwigExtension(
-        $c['router'],
-        $c['request']->getUri()
-    ));
+    $view = new \Slim\Views\Twig(
+        $settings['template_path'], [
+            'debug' => $settings['debug'],
+            'cache' => $settings['cache_path']
+        ]
+    );
+
+    // Add extensions
+    $view->addExtension(
+        new \Slim\Views\TwigExtension(
+            $c['router'],
+            $c['request']->getUri()
+        )
+    );
     $view->addExtension(new Twig_Extension_Debug());
     // $view->getEnvironment()->addGlobal('baseUrl', '/issam/ShoesRental');
     $view->getEnvironment()->addGlobal('session', $_SESSION);    
@@ -52,63 +58,62 @@ $container['logger'] = function ($c) {
 
 // error handle
 $container['errorHandler'] = function ($c) {
-  return function ($request, $response, $exception) use ($c) {
-    $data = [
-      'code' => $exception->getCode(),
-      'message' => $exception->getMessage(),
-      'file' => $exception->getFile(),
-      'line' => $exception->getLine(),
-      'trace' => explode("\n", $exception->getTraceAsString()),
-    ];
+    return function ($request, $response, $exception) use ($c) {
+        $data = [
+            'code' => $exception->getCode(),
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'trace' => explode("\n", $exception->getTraceAsString()),
+        ];
 
-    return $c->get('response')->withStatus(500)
-             ->withHeader('Content-Type', 'application/json')
-             ->write(json_encode($data));
-  };
+        return $c->get('response')->withStatus(500)
+            ->withHeader('Content-Type', 'application/json')
+            ->write(json_encode($data));
+    };
 };
 
 // Generate Activation Code
 $container['activation'] = function ($c) {
-	return new \Cartalyst\Sentinel\Activations\IlluminateActivationRepository;
+    return new \Cartalyst\Sentinel\Activations\IlluminateActivationRepository;
 };
 
-# -----------------------------------------------------------------------------
-# Action factories Controllers
-# -----------------------------------------------------------------------------
+/*
+* Action factories Controllers
+*/
 
 /*
 ** Adding controllers to app container
 */
 
-$container['ListController'] = function($c){
-  return new \App\Controllers\ListController($c);
+$container['ListController'] = function ($c) {
+    return new \App\Controllers\ListController($c);
 };
 
-$container['ReservationController'] = function($c){
-  return new \App\Controllers\ReservationController($c);
+$container['ReservationController'] = function ($c) {
+    return new \App\Controllers\ReservationController($c);
 };
 
-$container['ContributorController'] = function($c){
-  return new \App\Controllers\ContributorController($c);
+$container['ContributorController'] = function ($c) {
+    return new \App\Controllers\ContributorController($c);
 };
 
-$container['ItemController'] = function($c){
-  return new \App\Controllers\ItemController($c);
+$container['ItemController'] = function ($c) {
+    return new \App\Controllers\ItemController($c);
 };
 
 
-$container['MessageController'] = function($c){
-  return new \App\Controllers\MessageController($c);
+$container['MessageController'] = function ($c) {
+    return new \App\Controllers\MessageController($c);
 };
 
-$container['AuthController'] = function($c){
+$container['AuthController'] = function ($c) {
     return new \App\Controllers\AuthController($c);
-  };  
+};  
 
-# -----------------------------------------------------------------------------
-# Factories Models
-# -----------------------------------------------------------------------------
-
+/*
+* Factories Models
+*/
 $container['Model\User'] = function ($c) {
     return new App\Models\User;
 };
@@ -125,26 +130,24 @@ $container['Model\Message'] = function ($c) {
     return new App\Models\Message;
 };
 
-# -----------------------------------------------------------------------------
-# Factories Repositories
-# -----------------------------------------------------------------------------
-
+/*
+* Factories Repositories
+*/
 $container['App\Repositories\HomeRepository'] = function ($c) {
-	return new App\Repositories\HomeRepository(
+    return new App\Repositories\HomeRepository(
         $c->get('Model\User')
-	);
+    );
 };
 
 $container['App\Repositories\UserRepository'] = function ($c) {
-	return new App\Repositories\UserRepository(
+    return new App\Repositories\UserRepository(
         $c->get('Model\User')
-	);
+    );
 };
 
-# -----------------------------------------------------------------------------
-# Factories Services
-# -----------------------------------------------------------------------------
-
+/*
+* Factories Services
+*/
 $container['Mailer'] = function ($c) {
     return new App\Service\Mailer(
         $c->get('view')

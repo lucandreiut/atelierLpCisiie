@@ -21,6 +21,15 @@
 
 
 	{% block content %}
+		<div class="headerDetail">
+			<div class="headerDetailReturn">
+					<div class="returnBtn">
+						<div class="control">
+					   		<a title="Retour" type="submit" href="{{path_for('get_items_by_list', {id : item.lists.sharing_url})}}">Retour</a>
+						</div>
+					</div>
+			</div>
+		</div>
 		<div class="itemDetailsContainer">
 			<div class="itemDetailsHeader">
 				<div class="itemImages">
@@ -59,7 +68,11 @@
 						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					<div class="itemPrice">
+					{% if item.is_crowdfundable %}
+						<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+					{% else %}
 						<span class="itemPriceDegits">{{item.price}}€</span>
+					{% endif %}
 					</div>
 					{% if item.url %}
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>

@@ -831,7 +831,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
+.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails a, .headerDetail .headerDetailReturn .returnBtn .control a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -873,7 +873,7 @@ a {
 .container, .addItemContainer {
   width: 100%; }
 
-.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .itemsListContainer .itemsList .item .itemInformation, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow, .errorContainer .errorElements {
+.row, .error-alert, .form-create-list, .form-create-list .form-content, .form-create-list .form-content .input, .backto-list-button, .form-add-list, .list-of-lists, .list-of-lists div, .global_message, .global_message div, .header, .header .headerNavigation ul, .itemsListContainer .addNewItem .addNewItemForm, .itemsListContainer .itemsList .item, .itemsListContainer .itemsList .item .itemInformation, .addItemContainer .addItemForm, .addItemContainer .addItemForm .addItemFormContent, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageRealControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadesFilenames, .headerDetail .headerDetailReturn .returnBtn, .itemDetailsContainer .itemDetailsHeader, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow, .errorContainer .errorElements {
   display: flex;
   flex-wrap: wrap;
   width: 100%; }
@@ -882,7 +882,7 @@ a {
   flex-basis: 8.3333333333%;
   box-sizing: border-box; }
 
-.offset-1, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .global_message div, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .itemDetailsContainer .itemDetailsHeader .itemInformation {
+.offset-1, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl, .itemDetailsContainer .itemDetailsHeader .itemInformation {
   margin-left: 8.3333333333%; }
 
 .col-2, .backto-list-button input[type=submit], .itemDetailsContainer .itemDetailsHeader .itemInformation .itemPrice {
@@ -896,10 +896,10 @@ a {
   flex-basis: 25%;
   box-sizing: border-box; }
 
-.offset-3, .form-create-list .form-content, .form-add-list input {
+.offset-3, .form-create-list .form-content, .form-add-list input, .global_message {
   margin-left: 25%; }
 
-.col-4, .header .headerLogo, .itemsListContainer .itemsList .item .itemImage, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .errorContainer .errorElements .errorImageContainer {
+.col-4, .header .headerLogo, .itemsListContainer .itemsList .item .itemImage, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton, .headerDetail .headerDetailReturn .returnBtn .control, .errorContainer .errorElements .errorImageContainer {
   flex-basis: 33.3333333333%;
   box-sizing: border-box; }
 
@@ -913,7 +913,7 @@ a {
 .offset-5, .backto-list-button input[type=submit] {
   margin-left: 41.6666666667%; }
 
-.col-6, .form-create-list .form-content, .form-add-list input, .addItemContainer .addItemForm .addItemFormContent, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow div {
+.col-6, .form-create-list .form-content, .form-add-list input, .global_message, .addItemContainer .addItemForm .addItemFormContent, .itemDetailsContainer .itemDetailsHeader .itemImages .itemSmallImages .smallImagesRow div {
   flex-basis: 50%;
   box-sizing: border-box; }
 
@@ -941,7 +941,7 @@ a {
 .offset-9 {
   margin-left: 75%; }
 
-.col-10, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .global_message div, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl {
+.col-10, .form-create-list .form-content .input, .list-of-lists div, .list-of-lists div a, .addItemContainer .addItemForm .addItemFormContent .addItemFormControl {
   flex-basis: 83.3333333333%;
   box-sizing: border-box; }
 
@@ -1043,14 +1043,14 @@ a {
   .offset-md-11 {
     margin-left: 91.6666666667%; }
 
-  .col-md-12, .header .headerNavigation, .list-of-lists div {
+  .col-md-12, .header .headerNavigation, .list-of-lists div, .global_message {
     flex-basis: 100%;
     box-sizing: border-box; }
 
   .offset-md-12 {
     margin-left: 100%; }
 
-  .offset-md-0, .list-of-lists div {
+  .offset-md-0, .list-of-lists div, .global_message {
     margin-left: 0; } }
 @media screen and (max-width: 480px) {
   .col-sm-1 {
@@ -1130,14 +1130,14 @@ a {
   .offset-sm-11 {
     margin-left: 91.6666666667%; }
 
-  .col-sm-12, .error-alert div, .header .headerNavigation, .form-create-list .form-content, .list-of-lists div {
+  .col-sm-12, .error-alert div, .header .headerNavigation, .form-create-list .form-content, .list-of-lists div, .global_message {
     flex-basis: 100%;
     box-sizing: border-box; }
 
   .offset-sm-12 {
     margin-left: 100%; }
 
-  .offset-sm-0, .error-alert div, .form-create-list .form-content, .list-of-lists div {
+  .offset-sm-0, .error-alert div, .form-create-list .form-content, .list-of-lists div, .global_message {
     margin-left: 0; } }
 .error-alert div {
   line-height: 1;
@@ -1195,8 +1195,23 @@ a {
     height: 70px; }
 
 .global_message div p {
-  width: 25%;
-  word-wrap: break-word; }
+  width: 50%;
+  word-wrap: break-word;
+  color: #333333; }
+  .global_message div p b {
+    font-weight: bold;
+    color: black; }
+  .global_message div p u {
+    border: none; }
+  .global_message div p i {
+    font-style: oblique;
+    color: #a6a6a6; }
+
+.btnChat {
+  background-color: #e60000;
+  font-weight: normal; }
+  .btnChat:hover {
+    background-color: #b30000; }
 
 .header {
   color: #ecf0f1;
@@ -1240,7 +1255,22 @@ a {
   .list-of-lists div a {
     font-size: 100%; }
     .list-of-lists div a span {
-      font-size: 80%; } }
+      font-size: 80%; }
+
+  .global_message div {
+    padding-left: 2%; }
+    .global_message div p {
+      width: 95%;
+      word-wrap: break-word;
+      color: #333333; }
+      .global_message div p b {
+        font-weight: bold;
+        color: black; }
+      .global_message div p u {
+        border: none; }
+      .global_message div p i {
+        font-style: oblique;
+        color: #a6a6a6; } }
 @media screen and (max-width: 480px) {
   .header {
     height: 100%; }
@@ -1259,6 +1289,21 @@ a {
     font-size: 100%; }
     .list-of-lists div a span {
       font-size: 80%; }
+
+  .global_message div {
+    padding-left: 2%; }
+    .global_message div p {
+      width: 93%;
+      word-wrap: break-word;
+      color: #333333; }
+      .global_message div p b {
+        font-weight: bold;
+        color: black; }
+      .global_message div p u {
+        border: none; }
+      .global_message div p i {
+        font-style: oblique;
+        color: #a6a6a6; }
 
   .error-alert div {
     margin-left: 10px; } }
@@ -1376,6 +1421,13 @@ a {
       .addItemContainer .addItemForm .addItemFormContent .addItemFormControl .uploadImageFakeControl .uploadButton label {
         padding-top: 10px;
         padding-bottom: 10px; }
+
+.headerDetail .headerDetailReturn {
+  width: 60%;
+  margin: auto;
+  padding: 20px 0; }
+  .headerDetail .headerDetailReturn .returnBtn .control a {
+    border-radius: 0; }
 
 .itemDetailsContainer {
   width: 60%;
