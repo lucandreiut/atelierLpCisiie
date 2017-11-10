@@ -36,10 +36,13 @@
 						{% if item.url %}
 
 						<!--<a href="{{item.id}}" class="itemUrl">Page du cadeau</a>-->
-						<a class="itemUrl" target="_blank" href="{{item.url}}">Page du cadeau</a>
-
+						<div class="itemUrl">
+							<a target="_blank" href="{{item.url}}">Page du cadeau</a>
+						</div>
 						{% endif %}
-						<a href="{{path_for('item_details', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemDetails">Détails</a>
+						<div class="itemDetails">
+							<a href="{{path_for('item_details', {id: item.id, 'url': item.lists.sharing_url})}}" >Détails</a>
+						</div>
 						<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">
 							<button type="submit" class="itemDeleteButton">Supprimer</button>
 						</form>
