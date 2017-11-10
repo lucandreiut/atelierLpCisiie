@@ -831,7 +831,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails, .headerDetail .headerDetailReturn .returnBtn .control a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
+.link-green, .itemsListContainer .addNewItem .addNewItemForm .control a, .itemsListContainer .itemsList .item .itemInformation .itemDetails a, .headerDetail .headerDetailReturn .returnBtn .control a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemReservationRequest {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -840,7 +840,7 @@ a {
   line-height: 2.5;
   padding: 10px; }
 
-.link-blue, .itemsListContainer .itemsList .item .itemInformation .itemUrl, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemUrl {
+.link-blue, .itemsListContainer .itemsList .item .itemInformation .itemUrl a, .itemDetailsContainer .itemDetailsHeader .itemInformation .itemUrl {
   color: #34495e;
   text-decoration: none;
   color: #ecf0f1;
@@ -1348,11 +1348,19 @@ a {
       .itemsListContainer .itemsList .item .itemInformation .itemUrl {
         margin-left: 5px;
         margin-bottom: 5px;
-        border-radius: 0; }
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .itemsListContainer .itemsList .item .itemInformation .itemUrl a {
+          border-radius: 0; }
       .itemsListContainer .itemsList .item .itemInformation .itemDetails {
         margin-left: 5px;
         margin-bottom: 5px;
-        border-radius: 0; }
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .itemsListContainer .itemsList .item .itemInformation .itemDetails a {
+          border-radius: 0; }
       .itemsListContainer .itemsList .item .itemInformation .itemDelete {
         margin-left: 5px;
         margin-bottom: 5px;
@@ -1387,7 +1395,8 @@ a {
         flex-basis: 100%; } }
     .addItemContainer .addItemForm .addItemFormContent .addToListTitle {
       margin-bottom: 20px;
-      text-align: center; }
+      text-align: center;
+      width: 100%; }
     .addItemContainer .addItemForm .addItemFormContent .addItemFormControl {
       padding: 10px 0px;
       font-weight: bolder;

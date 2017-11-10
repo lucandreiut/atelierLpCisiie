@@ -489,17 +489,27 @@
                     width: 100%;
                 }
                 .itemUrl{
-                    @extend .link-blue;
                     margin-left:5px;
                     margin-bottom: 5px;
-                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    a{
+                        @extend .link-blue;
+                        border-radius: 0;
+                    }
                 }
 
                 .itemDetails{
-                    @extend .link-green;
                     margin-left:5px;
                     margin-bottom: 5px;
-                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    a{
+                        @extend .link-green;
+                        border-radius: 0;
+                    }
                 }
 
                 .itemDelete{
@@ -560,6 +570,7 @@
             .addToListTitle{
                 margin-bottom: 20px;
                 text-align: center;
+                width: 100%;
             }
             .addItemFormControl{
                 @extend .row;
