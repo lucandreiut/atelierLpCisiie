@@ -22,10 +22,48 @@ class ReservationController extends BaseController
 		$list = Lists::find($item->lists_id);
 		$verif = $this->verification($item->id);
 		if($verif){
-			$item->is_reserved = 1;
+			if($item->is_crowdfundable){
+				if($item->current_contribution < $item->price){
+					$item->current_contribution += $request->getParam('contribution');
+					if($item->current_contribution >= $item->price){
+						$item->current_contribution = $item->price;
+						$item->is_reserved = 1;
+				}
+				//$item->save();
+				//$contributor = new ContributorController;
+				//$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+			} else {
+				die('cadeau déjà financé');
+			}
+			}else{
+				$item->is_reserved = 1;
+				//$item->save();
+			}
 			$item->save();
 			$contributor = new ContributorController;
 			$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+		}
+
+		return $response->withRedirect('/lists/'.$list->sharing_url.'/items');
+	}
+
+	public function contribute($request, $response, $args){
+		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		$list = Lists::find($item->lists_id);
+		$verif = $this->verification($item->id);
+		if($verif){
+			if($item->current_contribution < $item->price){
+				$item->curent_contribution += $request->getParam('contribution');
+				if($item->current_contribution >= $item->price){
+					$item->current_contribution = $item->price;
+					$item->is_reserved = 1;
+				}
+				$item->save();
+				$contributor = new ContributorController;
+				$contributor->create($request->getParam('userName'), $request->getParam('userMsg'), $item->id);
+			} else {
+				die('cadeau déjà financé');
+			}
 		}
 
 		return $response->withRedirect('/lists/'.$list->sharing_url.'/items');

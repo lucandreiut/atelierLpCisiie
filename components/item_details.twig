@@ -54,7 +54,11 @@
 				<div class="itemInformation"><h2 class="itemTitle">{{item.title}}</h2>
 					<p class="itemDescription">{{item.description}}</p>
 					<div class="itemPrice">
+					{% if item.is_crowdfundable %}
+						<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+					{% else %}
 						<span class="itemPriceDegits">{{item.price}}€</span>
+					{% endif %}
 					</div>
 					{% if item.url %}
 					<a href="{{item.url}}" target="_blank" class="itemUrl">Page du cadeau</a>

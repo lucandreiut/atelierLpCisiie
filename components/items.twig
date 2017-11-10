@@ -42,7 +42,11 @@
 							<a href="{{path_for('item_details', {id: item.id, 'url': item.lists.sharing_url})}}" class="itemDetails">Détails</a>
 					</div>
 					<div class="itemPrice">
+					{% if item.is_crowdfundable %}
+						<span class="itemPriceDegits">{{item.current_contribution}} / {{item.price}}€</span>
+					{% else %}
 						<span class="itemPriceDegits">{{item.price}}€</span>
+					{% endif %}
 					</div>
 					{% if auth_check is not null and auth_check.id == item.lists_id and date(list.limit_date) > date() %}
 					<form class="itemDelete" action="{{path_for('delete_item', {id: item.id})}}" method="post">

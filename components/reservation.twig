@@ -10,6 +10,34 @@
 
 
 	{% block content %}
+
+
+    {% if item.is_crowdfundable %}
+    <p class="title">
+        {{item.title}} <br/>
+        {{item.current_contribution}} / {{item.price}}€
+        </p>
+        <form class="form-create-list" action="{{path_for('reserve_validation', {id: item.id, 'url': item.lists.sharing_url})}}" method="POST" id="addList">
+            <div class="form-content">
+                <div class="input">
+                    <label for="nom">Nom : </label><input id="nom" type="text" name="userName" placeholder="Votre nom" required>
+                </div>
+
+                <div class="input">
+                    <label for="message">Message : </label><textarea form="addList" id="message" class="message" type="text" name="userMsg" placeholder="Votre message" required></textarea>
+                </div>
+                <div class="input">
+                    <label for="price">Contribution : </label><input id="price" type="number" name="contribution" placeholder="Votre contribution en €" style="width:15em" required>
+                </div>
+                <div class="input">
+                    <input class="add-list-button" type="submit" value="Contribuer">
+                </div>
+                 <input type="hidden" value="{{item.id}}" name="item_id" />
+            </div>
+        </form>
+
+
+    {% else %} 
 		<p class="title">
 		{{item.title}} <br/>
 		{{item.price}}€
@@ -29,7 +57,7 @@
 		 		 <input type="hidden" value="{{item.id}}" name="item_id" />
             </div>
         </form>
-
+    {% endif %}
 	{% endblock %}
 
 
