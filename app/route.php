@@ -22,8 +22,8 @@ $app->get('/lists/{id}/message', 'MessageController:findAll')->setName('message'
 $app->post('/lists/{id}/message', 'MessageController:sendMessage')->setName('send_message');
 
 
-$app->get('/items/{id}/reservation', 'ReservationController:index')->setName('reservation');
-$app->post('/items/{id}/reservation', 'ReservationController:reserve')->setName('reserve_validation');
+$app->get('/lists/{url}/items/{id}/reservation', 'ReservationController:index')->setName('reservation');
+$app->post('/lists/{url}/items/{id}/reservation', 'ReservationController:reserve')->setName('reserve_validation');
 
 //Delete item action
 $app->post('/items/{id}', 'ItemController:deleteItem')->setName('delete_item');

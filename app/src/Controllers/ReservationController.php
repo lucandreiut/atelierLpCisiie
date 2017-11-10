@@ -12,6 +12,7 @@ class ReservationController extends BaseController
 {
 	public function index($request, $response, $args){
 		$item = Item::find($request->getAttribute('route')->getArgument('id'));
+		//$list = Lists::where('sharing_url', 'LIKE', $request->getAttribute('route')->getArgument('url'))->first();
 		$verif = $this->verification($item->id);
 
 		return $this->container->view->render($response, 'reservation.twig', array('item' => $item));
