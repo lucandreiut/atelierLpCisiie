@@ -11,7 +11,7 @@ require PATH_ROOT . '/vendor/autoload.php';
 session_start();
 
 // Instantiate the app
-$settings = require PATH_ROOT . '/config/setting.php';
+$settings = include PATH_ROOT . '/config/setting.php';
 $app = new \Slim\App($settings);
 
 // Set up dependencies
